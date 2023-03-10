@@ -1,0 +1,14 @@
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Infrastructure.deps.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Infrastructure.runtimeconfig.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Infrastructure.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.AssemblyInfo.cs
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\refint\ProjectName.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.genruntimeconfig.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ref\ProjectName.Infrastructure.dll

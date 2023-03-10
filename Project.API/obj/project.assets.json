@@ -2110,6 +2110,40 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "ProjectName.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ProjectName.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProjectName.Application.dll": {}
+        }
+      },
+      "ProjectName.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ProjectName.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProjectName.Common.dll": {}
+        }
+      },
       "ProjectName.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2125,6 +2159,23 @@
         },
         "runtime": {
           "bin/placeholder/ProjectName.Domain.dll": {}
+        }
+      },
+      "ProjectName.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ProjectName.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProjectName.Infrastructure.dll": {}
         }
       },
       "ProjectName.Persistence/1.0.0": {
@@ -7316,10 +7367,25 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "ProjectName.Application/1.0.0": {
+      "type": "project",
+      "path": "../ProjectName.Application/ProjectName.Application.csproj",
+      "msbuildProject": "../ProjectName.Application/ProjectName.Application.csproj"
+    },
+    "ProjectName.Common/1.0.0": {
+      "type": "project",
+      "path": "../ProjectName.Common/ProjectName.Common.csproj",
+      "msbuildProject": "../ProjectName.Common/ProjectName.Common.csproj"
+    },
     "ProjectName.Domain/1.0.0": {
       "type": "project",
       "path": "../ProjectName.Domain/ProjectName.Domain.csproj",
       "msbuildProject": "../ProjectName.Domain/ProjectName.Domain.csproj"
+    },
+    "ProjectName.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ProjectName.Infrastructure/ProjectName.Infrastructure.csproj",
+      "msbuildProject": "../ProjectName.Infrastructure/ProjectName.Infrastructure.csproj"
     },
     "ProjectName.Persistence/1.0.0": {
       "type": "project",
@@ -7335,7 +7401,10 @@
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.3",
+      "ProjectName.Application >= 1.0.0",
+      "ProjectName.Common >= 1.0.0",
       "ProjectName.Domain >= 1.0.0",
+      "ProjectName.Infrastructure >= 1.0.0",
       "ProjectName.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
@@ -7372,8 +7441,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\ProjectName.Application.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\ProjectName.Application.csproj"
+            },
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj"
+            },
             "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
               "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+            },
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj"
             },
             "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj": {
               "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj"

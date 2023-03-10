@@ -91,3 +91,9 @@ C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Domain.
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Domain.pdb
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Persistence.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Persistence.pdb
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Application.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Common.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Application.pdb
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Common.pdb
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Infrastructure.pdb

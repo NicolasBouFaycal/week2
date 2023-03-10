@@ -14,7 +14,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "ProjectName.Application": "1.0.0",
+          "ProjectName.Common": "1.0.0",
           "ProjectName.Domain": "1.0.0",
+          "ProjectName.Infrastructure": "1.0.0",
           "ProjectName.Persistence": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
@@ -1397,6 +1400,30 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "ProjectName.Application/1.0.0": {
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "runtime": {
+          "ProjectName.Application.dll": {}
+        }
+      },
+      "ProjectName.Common/1.0.0": {
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "runtime": {
+          "ProjectName.Common.dll": {}
+        }
+      },
       "ProjectName.Domain/1.0.0": {
         "dependencies": {
           "MediatR": "11.1.0",
@@ -1407,6 +1434,18 @@
         },
         "runtime": {
           "ProjectName.Domain.dll": {}
+        }
+      },
+      "ProjectName.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "runtime": {
+          "ProjectName.Infrastructure.dll": {}
         }
       },
       "ProjectName.Persistence/1.0.0": {
@@ -2410,7 +2449,22 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
+    "ProjectName.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProjectName.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "ProjectName.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProjectName.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

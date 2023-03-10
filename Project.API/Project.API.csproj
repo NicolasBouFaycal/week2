@@ -20,7 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectName.Application\ProjectName.Application.csproj" />
+    <ProjectReference Include="..\ProjectName.Common\ProjectName.Common.csproj" />
     <ProjectReference Include="..\ProjectName.Domain\ProjectName.Domain.csproj" />
+    <ProjectReference Include="..\ProjectName.Infrastructure\ProjectName.Infrastructure.csproj" />
     <ProjectReference Include="..\ProjectName.Persistence\ProjectName.Persistence.csproj" />
   </ItemGroup>
 
