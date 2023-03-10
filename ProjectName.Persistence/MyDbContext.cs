@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using ProjectName.Domain;
 
-namespace Project.API.Models;
+namespace ProjectName.Persistence;
 
 public partial class MyDbContext : DbContext
 {

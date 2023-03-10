@@ -1,0 +1,17 @@
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Persistence.deps.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Persistence.runtimeconfig.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Persistence.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Persistence.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Domain.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\bin\Debug\net6.0\ProjectName.Domain.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.csproj.AssemblyReference.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.AssemblyInfoInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.AssemblyInfo.cs
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.csproj.CopyComplete
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\refint\ProjectName.Persistence.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ProjectName.Persistence.genruntimeconfig.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Persistence\obj\Debug\net6.0\ref\ProjectName.Persistence.dll

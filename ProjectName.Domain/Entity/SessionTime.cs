@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Project.API.Models;
+namespace ProjectName.Domain;
 
 public partial class SessionTime
 {

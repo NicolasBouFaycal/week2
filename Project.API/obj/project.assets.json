@@ -2109,6 +2109,41 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "ProjectName.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ProjectName.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProjectName.Domain.dll": {}
+        }
+      },
+      "ProjectName.Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "ProjectName.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ProjectName.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProjectName.Persistence.dll": {}
+        }
       }
     }
   },
@@ -7280,6 +7315,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "ProjectName.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ProjectName.Domain/ProjectName.Domain.csproj",
+      "msbuildProject": "../ProjectName.Domain/ProjectName.Domain.csproj"
+    },
+    "ProjectName.Persistence/1.0.0": {
+      "type": "project",
+      "path": "../ProjectName.Persistence/ProjectName.Persistence.csproj",
+      "msbuildProject": "../ProjectName.Persistence/ProjectName.Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7290,6 +7335,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.3",
+      "ProjectName.Domain >= 1.0.0",
+      "ProjectName.Persistence >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -7324,7 +7371,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+            },
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
