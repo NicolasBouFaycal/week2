@@ -19,6 +19,8 @@ namespace Project.API.Controllers
                 CookieOptions options = new CookieOptions();
                 options.Secure = true;
                 Response.Cookies.Append("Token", "Bearer "+firebaseAuthLink.FirebaseToken);
+                Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
+
                 return firebaseAuthLink.User.LocalId;
             }
             catch (Exception ex)
