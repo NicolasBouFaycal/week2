@@ -97,3 +97,16 @@ C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Infrast
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Application.pdb
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Common.pdb
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\ProjectName.Infrastructure.pdb
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\firebase-config.json
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\FirebaseAdmin.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Firebase.Auth.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Api.Gax.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Api.Gax.Rest.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Apis.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Apis.Auth.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Google.Apis.Core.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Intersoft.Crosslight.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\RestSharp.dll
