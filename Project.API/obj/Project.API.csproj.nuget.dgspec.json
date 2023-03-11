@@ -72,6 +72,10 @@
               "target": "Package",
               "version": "[6.0.5000.975, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -97,6 +101,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -182,6 +190,10 @@
               "target": "Package",
               "version": "[3.7.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -203,6 +215,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -281,6 +297,10 @@
               "target": "Package",
               "version": "[3.7.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -302,6 +322,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -380,6 +404,10 @@
               "target": "Package",
               "version": "[3.7.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -401,6 +429,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -458,7 +490,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
+                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -478,6 +514,10 @@
             "FirebaseAuthentication.net": {
               "target": "Package",
               "version": "[3.7.1, )"
+            },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "MediatR": {
               "target": "Package",
@@ -500,6 +540,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -582,6 +626,10 @@
               "target": "Package",
               "version": "[3.7.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.1.0, )"
@@ -603,6 +651,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.4.3, )"
             },
             "Npgsql": {
               "target": "Package",

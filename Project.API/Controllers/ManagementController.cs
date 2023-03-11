@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NpgsqlTypes;
 using ProjectName.Domain;
+using ProjectName.Domain.EmailServiceAbstraction;
 using ProjectName.Persistence;
 
 namespace Project.API.Controllers
@@ -11,9 +12,12 @@ namespace Project.API.Controllers
     public class ManagementController : ControllerBase
     {
         public readonly MyDbContext _context;
-        public ManagementController(MyDbContext context)
+        private readonly IEmailService _emailService;
+
+        public ManagementController(MyDbContext context, IEmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
         [HttpPost(template: "SessionTime")]
         public async Task<ActionResult<SessionTime>> InsertTime([FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration)
@@ -90,13 +94,11 @@ namespace Project.API.Controllers
         {
             try
             {
-
-
                 User r = new User();
                 r.Name = Name;
                 r.Email=Email;
                 r.KeycloakId=FireBaseId;
-                r.Id = 4;
+                r.Id = 5;
                 r.RoleId = 3;
                 if (r == null)
                     throw new InvalidOperationException("INsert Data");
@@ -227,6 +229,7 @@ namespace Project.API.Controllers
         {
             var courses = (from c in _context.Courses select c).ToList();
             var userid = Request.Cookies["UserId"];
+            var getUserEmail=(from u in _context.Users where u.KeycloakId==userid select u.Email).FirstOrDefault(); 
             if (courses.Count == 0)
             {
                 return NotFound();
@@ -241,19 +244,18 @@ namespace Project.API.Controllers
                     DateOnly currentDate = DateOnly.FromDateTime(DateTime.UtcNow.Date);
                     if(start<=currentDate && end >= currentDate)
                     {
-
                         ClassEnrollment newclass = new ClassEnrollment();
-
-                        newclass.Id = 1;
+                        newclass.Id = 2;
                         newclass.ClassId = courseId;
                         newclass.StudentId= (from s in _context.Users where (s.KeycloakId == userid) select s.Id).FirstOrDefault();
-
                         if (newclass == null)
                             throw new InvalidOperationException("INsert Data");
                         _context.Add(newclass);
                         _context.SaveChanges();
-                        return newclass;
+                        var className=(from c in _context.Courses where c.Id==courseId select c.Name).FirstOrDefault();
+                        _emailService.SendEmail(getUserEmail, getUserEmail, "Enrollment to class ", "You have been Suseesfully enrolled in the class :"+ className);
 
+                        return newclass;
                     };
                 }
             }

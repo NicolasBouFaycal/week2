@@ -12,3 +12,6 @@ C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\refi
 C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.pdb
 C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.genruntimeconfig.cache
 C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ref\ProjectName.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Domain.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\bin\Debug\net6.0\ProjectName.Domain.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Infrastructure\obj\Debug\net6.0\ProjectName.Infrastructure.csproj.CopyComplete

@@ -1,9 +1,11 @@
+using ProjectName.Infrastructure.EmailService;
 using FirebaseAdmin;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Project.API.Autnetication;
 using ProjectName.Domain;
+using ProjectName.Domain.EmailServiceAbstraction;
 using ProjectName.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 
