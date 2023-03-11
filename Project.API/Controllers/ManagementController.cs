@@ -16,13 +16,13 @@ namespace Project.API.Controllers
             _context = context;
         }
         [HttpPost(template: "SessionTime")]
-        public async Task<ActionResult<SessionTime>> InsertTime([FromQuery] DateTime StartTime, [FromQuery] DateTime EndTime, [FromQuery] int Duration)
+        public async Task<ActionResult<SessionTime>> InsertTime([FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration)
         {
             try
             {
                 SessionTime tm = new SessionTime();
-                tm.StartTime = StartTime;
-                tm.EndTime = EndTime;
+                tm.StartTime = StartTimeYYYY_MM_DD;
+                tm.EndTime = EndTimeYYYY_MM_DD;
                 tm.Duration = Duration;
                 tm.Id = 4;
                 if (tm == null)
@@ -50,7 +50,7 @@ namespace Project.API.Controllers
                 tm.EnrolmentDateRange = range;
                 tm.Name = Name;
                 tm.MaxStudentsNumber = MaxStudentsNumber;
-                tm.Id = 2;
+                tm.Id = 6;
                 if (tm == null)
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(tm);
@@ -59,7 +59,7 @@ namespace Project.API.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("connection not find");
+                throw new Exception("change course id");
 
             }
         }
@@ -96,7 +96,7 @@ namespace Project.API.Controllers
                 r.Name = Name;
                 r.Email=Email;
                 r.KeycloakId=FireBaseId;
-                r.Id = 3;
+                r.Id = 4;
                 r.RoleId = 3;
                 if (r == null)
                     throw new InvalidOperationException("INsert Data");
@@ -208,7 +208,12 @@ namespace Project.API.Controllers
         [HttpGet("GetAllCoursesForStudent")]
         public async Task<ActionResult<List<Course>>> GetAllCoursesForStudent()
         {
-            var courses = (from c in _context.Courses select c).ToList();
+            var userid = Request.Cookies["UserId"];
+            var getStudentId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
+            var courses = _context.Courses
+            .Where(c => !_context.ClassEnrollments
+                .Any(ce => ce.ClassId == c.Id && ce.StudentId == getStudentId))
+            .ToList(); 
      
             if (courses.Count > 0)
             {
@@ -216,6 +221,43 @@ namespace Project.API.Controllers
             }
             throw new NullReferenceException("NUll");
 
+        }
+        [HttpPost(template:"StudentEnrollToCourse")]
+        public async Task<ActionResult<ClassEnrollment>> StudentEnrollToCourse([FromQuery] int courseId )
+        {
+            var courses = (from c in _context.Courses select c).ToList();
+            var userid = Request.Cookies["UserId"];
+            if (courses.Count == 0)
+            {
+                return NotFound();
+            }
+            foreach (var course in courses)
+            {
+                if(course.Id == courseId)
+                {
+                    NpgsqlRange<DateOnly>? range=course.EnrolmentDateRange;
+                    DateOnly start = range.Value.LowerBound ;
+                    DateOnly end= range.Value.UpperBound ;
+                    DateOnly currentDate = DateOnly.FromDateTime(DateTime.UtcNow.Date);
+                    if(start<=currentDate && end >= currentDate)
+                    {
+
+                        ClassEnrollment newclass = new ClassEnrollment();
+
+                        newclass.Id = 1;
+                        newclass.ClassId = courseId;
+                        newclass.StudentId= (from s in _context.Users where (s.KeycloakId == userid) select s.Id).FirstOrDefault();
+
+                        if (newclass == null)
+                            throw new InvalidOperationException("INsert Data");
+                        _context.Add(newclass);
+                        _context.SaveChanges();
+                        return newclass;
+
+                    };
+                }
+            }
+            throw new Exception("connection add Class bcause times up");
         }
     }
 }
