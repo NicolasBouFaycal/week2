@@ -19,7 +19,10 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3",
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "UMS.Domain": "1.0.0",
+          "UMS.Infrastructure": "1.0.0",
+          "UMS.Persistence": "1.0.0"
         },
         "runtime": {
           "UMS.Common.dll": {}
@@ -1534,6 +1537,62 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "UMS.Domain/1.0.0": {
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "runtime": {
+          "UMS.Domain.dll": {}
+        }
+      },
+      "UMS.Infrastructure/1.0.0": {
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "UMS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "UMS.Infrastructure.dll": {}
+        }
+      },
+      "UMS.Persistence/1.0.0": {
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "UMS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "UMS.Persistence.dll": {}
+        }
       }
     }
   },
@@ -2606,6 +2665,21 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "UMS.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UMS.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UMS.Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

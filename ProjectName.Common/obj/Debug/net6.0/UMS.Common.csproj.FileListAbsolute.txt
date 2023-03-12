@@ -12,3 +12,10 @@ C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\refint\UMS.C
 C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.pdb
 C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.genruntimeconfig.cache
 C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\ref\UMS.Common.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Domain.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Infrastructure.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Persistence.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Domain.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Infrastructure.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Persistence.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.csproj.CopyComplete

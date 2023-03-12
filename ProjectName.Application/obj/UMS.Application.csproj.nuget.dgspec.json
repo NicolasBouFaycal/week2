@@ -155,7 +155,17 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj": {
+                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj"
+              },
+              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj"
+              },
+              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj": {
+                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -4,9 +4,7 @@ using UMS.Domain;
 using UMS.Infrastructure.EmailServiceAbstraction;
 using UMS.Persistence;
 using Microsoft.AspNetCore.Authorization;
-using UMS.API.Aauthorization;
 using System.Security.Claims;
-using CookieAuthenticationDemo.CustomHandler;
 using Microsoft.AspNetCore.OData;
 using UMS.Application.Abstraction;
 using UMS.Application.Service;
@@ -15,14 +13,17 @@ using UMS.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using UMS.Application.Handlers;
 using UMS.Application.Commands;
+using UMS.Common.CustomHandler;
+using UMS.Common.Aauthorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers().AddOData(options =>
 options.Select().Filter().OrderBy());
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//  .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>(JwtBearerDefaults.AuthenticationScheme, (o) => { });
+
+
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));

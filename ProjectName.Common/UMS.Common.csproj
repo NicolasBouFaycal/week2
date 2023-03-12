@@ -24,4 +24,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectName.Domain\UMS.Domain.csproj" />
+    <ProjectReference Include="..\ProjectName.Infrastructure\UMS.Infrastructure.csproj" />
+    <ProjectReference Include="..\ProjectName.Persistence\UMS.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
