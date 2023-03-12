@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using NpgsqlTypes;
 using ProjectName.Domain;
 using ProjectName.Infrastructure.EmailServiceAbstraction;
@@ -23,6 +24,7 @@ namespace Project.API.Controllers
             _emailService = emailService;
         }
         [HttpGet("GetAllCoursesForStudent")]
+        [EnableQuery]
         public async Task<ActionResult<List<Course>>> GetAllCoursesForStudent()
         {
             var userid = Request.Cookies["UserId"];

@@ -113,3 +113,8 @@ C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\RestSharp.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\MailKit.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\MimeKit.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.AspNetCore.OData.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.OData.Core.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.OData.Edm.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.Spatial.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.OData.ModelBuilder.dll

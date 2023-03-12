@@ -88,6 +88,10 @@
               "target": "Package",
               "version": "[6.0.14, )"
             },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -206,6 +210,10 @@
               "target": "Package",
               "version": "[6.0.14, )"
             },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -313,6 +321,10 @@
               "target": "Package",
               "version": "[6.0.14, )"
             },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -419,6 +431,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.14, )"
+            },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -531,6 +547,10 @@
               "target": "Package",
               "version": "[6.0.14, )"
             },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -641,6 +661,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.14, )"
+            },
+            "Microsoft.AspNetCore.OData": {
+              "target": "Package",
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

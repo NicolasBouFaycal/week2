@@ -11,13 +11,17 @@ using Microsoft.AspNetCore.Authorization;
 using Project.API.Aauthorization;
 using System.Security.Claims;
 using CookieAuthenticationDemo.CustomHandler;
+using Microsoft.OData.Edm;
+using Microsoft.OData;
+using Microsoft.AspNetCore.OData;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddOData(options =>
+options.Select());
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-  //  .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>(JwtBearerDefaults.AuthenticationScheme, (o) => { });
+//  .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>(JwtBearerDefaults.AuthenticationScheme, (o) => { });
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));
@@ -62,13 +66,24 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 
+
+
+/*app.UseMvc(routeBuilder =>
+{
+    routeBuilder.EnableDependencyInjection();
+    routeBuilder.Select().OrderBy().Filter();
+});*/
+app.UseRouting();
 app.UseAuthorization();
+
+
 
 
 app.MapControllers();
