@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
-using ProjectName.Persistence;
+using UMS.Persistence;
 
-namespace Project.API.Aauthorization
+namespace UMS.API.Aauthorization
 {
     public class RolesAuthorizationHandler : AuthorizationHandler<RolesAuthorizationRequirement>, IAuthorizationHandler
     {

@@ -1,0 +1,14 @@
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Common.deps.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Common.runtimeconfig.json
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Common.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\bin\Debug\net6.0\UMS.Common.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.csproj.AssemblyReference.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.AssemblyInfoInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.AssemblyInfo.cs
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.csproj.CoreCompileInputs.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\refint\UMS.Common.dll
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.pdb
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\UMS.Common.genruntimeconfig.cache
+C:\Users\nicol\source\repos\DDD\ProjectName.Common\obj\Debug\net6.0\ref\UMS.Common.dll

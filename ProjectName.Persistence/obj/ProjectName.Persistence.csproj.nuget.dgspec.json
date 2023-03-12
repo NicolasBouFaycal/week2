@@ -4,12 +4,12 @@
     "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
+    "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj",
-        "projectName": "ProjectName.Domain",
-        "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj",
+        "projectName": "UMS.Domain",
+        "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj",
         "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -143,8 +143,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
-                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+              "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj": {
+                "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj"
               }
             }
           }

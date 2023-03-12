@@ -1,9 +1,9 @@
-﻿using ProjectName.Infrastructure.EmailConfiguration;
-using ProjectName.Infrastructure.EmailServiceAbstraction;
+﻿using UMS.Infrastructure.EmailConfiguration;
+using UMS.Infrastructure.EmailServiceAbstraction;
 using MimeKit;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 
-namespace ProjectName.Infrastructure.EmailService
+namespace UMS.Infrastructure.EmailService
 {
     public class EmailService:IEmailService
     {

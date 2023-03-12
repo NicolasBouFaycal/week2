@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NpgsqlTypes;
-using ProjectName.Domain;
-using ProjectName.Infrastructure.EmailServiceAbstraction;
-using ProjectName.Persistence;
+using UMS.Application.Commands;
+using UMS.Domain;
 
-namespace Project.API.Controllers
+namespace UMS.API.Controllers
 {
 
     [Route("api/[controller]")]
@@ -14,64 +13,20 @@ namespace Project.API.Controllers
 
     public class AdminController : ControllerBase
     {
-        public readonly MyDbContext _context;
-        private readonly IEmailService _emailService;
+        private readonly IMediator _mediator;
 
-        public AdminController(MyDbContext context, IEmailService emailService)
+        public AdminController( IMediator mediator)
         {
-            _context = context;
-            _emailService = emailService;
+            _mediator = mediator;   
         }
-        [HttpPost(template: "SessionTime")]
-        [Authorize(Roles = "NICOLAS")]
-        public async Task<ActionResult<SessionTime>> InsertTime([FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration)
-        {
-            try
-            {
-                SessionTime tm = new SessionTime();
-                tm.StartTime = StartTimeYYYY_MM_DD;
-                tm.EndTime = EndTimeYYYY_MM_DD;
-                tm.Duration = Duration;
-                tm.Id = 4;
-                if (tm == null)
-                    throw new InvalidOperationException("INsert Data");
-                _context.Add(tm);
-                _context.SaveChanges();
-                return Ok(tm);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("connection not find");
-
-            }
-        }
+       
         [HttpPost(template: "CreateCourse")]
-        public async Task<ActionResult<Course>> CreateCourse([FromQuery] string Name, [FromQuery] int MaxStudentsNumber, [FromQuery] int startyear, [FromQuery] int startMonth, [FromQuery] int startDay, [FromQuery] int endyear, [FromQuery] int endMonth, [FromQuery] int endDay)
+        public async Task<ActionResult<Course>> CreateCourse([FromQuery] string name, [FromQuery] int maxStudentsNumber, [FromQuery] int startyear, [FromQuery] int startMonth, [FromQuery] int startDay, [FromQuery] int endyear, [FromQuery] int endMonth, [FromQuery] int endDay)
         {
-            try
-            {
-                var startDate = new DateOnly(startyear, startMonth, startDay);
-                var endDate = new DateOnly(endyear, endMonth, endDay - 1);
-                var range = new NpgsqlRange<DateOnly>(startDate, endDate);
-
-                Course tm = new Course();
-                tm.EnrolmentDateRange = range;
-                tm.Name = Name;
-                tm.MaxStudentsNumber = MaxStudentsNumber;
-                tm.Id = 6;
-                if (tm == null)
-                    throw new InvalidOperationException("INsert Data");
-                _context.Add(tm);
-                _context.SaveChanges();
-                return Ok(tm);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("change course id");
-
-            }
+            var result = await _mediator.Send(new CreateCourseCommand(this,name,maxStudentsNumber,startyear,startMonth,startDay,endyear,endMonth,endDay));
+            return result;
         }
-            [HttpPost(template: "CreateRole")]
+            /*[HttpPost(template: "CreateRole")]
             public async Task<ActionResult<Role>> CreateRole([FromQuery] string Name)
             {
                 try
@@ -92,8 +47,8 @@ namespace Project.API.Controllers
                     throw new Exception("connection not find");
 
                 }
-            }
-        [HttpPost(template: "CreateUser")]
+            }*/
+       /* [HttpPost(template: "CreateUser")]
         public async Task<ActionResult<Role>> CreateUser([FromQuery] string Name, [FromQuery] string Email, [FromQuery] string FireBaseId)
         {
             try
@@ -115,6 +70,6 @@ namespace Project.API.Controllers
                 throw new Exception("connection not find");
 
             }
-        }
+        }*/
     }
 }

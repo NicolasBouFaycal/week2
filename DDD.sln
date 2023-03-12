@@ -7,23 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{B56311B4-6B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{242A42E7-CF56-454D-ACE6-FB8902BB6B4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.API", "Project.API\Project.API.csproj", "{C2D6C213-7C09-4EE4-9B90-58803A6A5730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.API", "Project.API\UMS.API.csproj", "{C2D6C213-7C09-4EE4-9B90-58803A6A5730}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BEA8B14E-4DBA-40ED-BFDD-2FE236B09795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.Common", "ProjectName.Common\ProjectName.Common.csproj", "{9A2A465E-012B-4159-9EF9-A4FD109F7F26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.Common", "ProjectName.Common\UMS.Common.csproj", "{9A2A465E-012B-4159-9EF9-A4FD109F7F26}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FB86B378-4961-4984-BDAC-405E68E705B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.Application", "ProjectName.Application\ProjectName.Application.csproj", "{1A67B6C8-47C4-4F6D-A13F-B803170A4324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.Application", "ProjectName.Application\UMS.Application.csproj", "{1A67B6C8-47C4-4F6D-A13F-B803170A4324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.Domain", "ProjectName.Domain\ProjectName.Domain.csproj", "{30013C3A-6FDA-483D-840C-C099909670EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.Domain", "ProjectName.Domain\UMS.Domain.csproj", "{30013C3A-6FDA-483D-840C-C099909670EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6D3B6E71-1C3E-429D-9DDC-119F4FBE9567}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.Infrastructure", "ProjectName.Infrastructure\ProjectName.Infrastructure.csproj", "{B42A9EA4-0EE5-4F67-B9B7-087D34E70142}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.Infrastructure", "ProjectName.Infrastructure\UMS.Infrastructure.csproj", "{B42A9EA4-0EE5-4F67-B9B7-087D34E70142}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName.Persistence", "ProjectName.Persistence\ProjectName.Persistence.csproj", "{A359323A-6F5B-4783-836C-4888861C29F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMS.Persistence", "ProjectName.Persistence\UMS.Persistence.csproj", "{A359323A-6F5B-4783-836C-4888861C29F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProjectName.Domain;
+namespace UMS.Domain;
 
 public partial class TeacherPerCourse
 {

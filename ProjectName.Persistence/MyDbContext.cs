@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using ProjectName.Domain;
+using UMS.Domain;
 
-namespace ProjectName.Persistence;
+namespace UMS.Persistence;
 
 public partial class MyDbContext : DbContext
 {

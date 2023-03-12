@@ -1,4 +1,4 @@
-﻿namespace ProjectName.Infrastructure.EmailConfiguration
+﻿namespace UMS.Infrastructure.EmailConfiguration
 {
     public class EmailSettings
     {

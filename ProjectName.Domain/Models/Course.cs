@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NpgsqlTypes;
 
-namespace ProjectName.Domain;
+namespace UMS.Domain;
 
 public partial class Course
 {

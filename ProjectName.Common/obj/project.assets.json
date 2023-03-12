@@ -7804,9 +7804,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj",
-      "projectName": "ProjectName.Common",
-      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\UMS.Common.csproj",
+      "projectName": "UMS.Common",
+      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\UMS.Common.csproj",
       "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\obj\\",
       "projectStyle": "PackageReference",

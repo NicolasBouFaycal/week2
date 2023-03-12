@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YdgOWHwZnl1WC6KhMP7+I6Yk4U2h48iroGGGwcCrLDY4KdNkAyAAy7zXQycUizTx+vZ3pJ9ww+UamR4dUq1I5A==",
+  "dgSpecHash": "0EoqzBEELjroj8/YX2s/A7VTfrvQkTGRSryTs2+c2/7AGcWtlShAOMRCZ+GHJBrFqYQJ0v/7Kq4WPgpbfAC+4g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicol\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

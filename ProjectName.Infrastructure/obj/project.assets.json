@@ -2275,7 +2275,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "ProjectName.Domain/1.0.0": {
+      "UMS.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2292,10 +2292,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
         },
         "compile": {
-          "bin/placeholder/ProjectName.Domain.dll": {}
+          "bin/placeholder/UMS.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProjectName.Domain.dll": {}
+          "bin/placeholder/UMS.Domain.dll": {}
         }
       }
     }
@@ -7803,10 +7803,10 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "ProjectName.Domain/1.0.0": {
+    "UMS.Domain/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Domain/ProjectName.Domain.csproj",
-      "msbuildProject": "../ProjectName.Domain/ProjectName.Domain.csproj"
+      "path": "../ProjectName.Domain/UMS.Domain.csproj",
+      "msbuildProject": "../ProjectName.Domain/UMS.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7823,7 +7823,7 @@
       "MimeKit >= 3.4.3",
       "Npgsql >= 7.0.2",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.3",
-      "ProjectName.Domain >= 1.0.0"
+      "UMS.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7833,9 +7833,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj",
-      "projectName": "ProjectName.Infrastructure",
-      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj",
+      "projectName": "UMS.Infrastructure",
+      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
@@ -7858,8 +7858,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj"
             }
           }
         }

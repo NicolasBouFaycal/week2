@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using static CookieAuthenticationDemo.CustomHandler.AuthorizationPolicyBuilderExtension;
 
-namespace Project.API.Aauthorization
+namespace UMS.API.Aauthorization
 {
     public class PoliciesAuthorizationHandler : AuthorizationHandler<CustomUserRequireClaim>
     {

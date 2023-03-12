@@ -1,25 +1,26 @@
-using ProjectName.Infrastructure.EmailService;
-using FirebaseAdmin;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using UMS.Infrastructure.EmailService;
 using Microsoft.EntityFrameworkCore;
-using Project.API.Autnetication;
-using ProjectName.Domain;
-using ProjectName.Infrastructure.EmailServiceAbstraction;
-using ProjectName.Persistence;
+using UMS.Domain;
+using UMS.Infrastructure.EmailServiceAbstraction;
+using UMS.Persistence;
 using Microsoft.AspNetCore.Authorization;
-using Project.API.Aauthorization;
+using UMS.API.Aauthorization;
 using System.Security.Claims;
 using CookieAuthenticationDemo.CustomHandler;
-using Microsoft.OData.Edm;
-using Microsoft.OData;
 using Microsoft.AspNetCore.OData;
+using UMS.Application.Abstraction;
+using UMS.Application.Service;
+using MediatR;
+using UMS.Application.Queries;
+using Microsoft.AspNetCore.Mvc;
+using UMS.Application.Handlers;
+using UMS.Application.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers().AddOData(options =>
-options.Select());
+options.Select().Filter().OrderBy());
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //  .AddScheme<AuthenticationSchemeOptions, FirebaseAuthenticationHandler>(JwtBearerDefaults.AuthenticationScheme, (o) => { });
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -47,9 +48,25 @@ builder.Services.AddAuthorization(config =>
         policyBuilder.UserRequireCustomClaim(ClaimTypes.Email);
     });
 });
+builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddTransient<IRequestHandler<CreateCourseCommand, ActionResult<Course>>, CreateCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllClassesForStudent, ActionResult<List<TeacherPerCourse>>>, GetAllCoursesForStudentHandler>();
+builder.Services.AddTransient<IRequestHandler<StudentEnrollToCourseCommand, ActionResult<ClassEnrollment>>, StudentEnrollToCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<InserSessionTimeCommand, ActionResult<SessionTime>>, InserSessionTimeHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllCourses, ActionResult<List<Course>>>, GetAllCoursesHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllTeacherPerCourse, ActionResult<List<TeacherPerCourse>>>, GetAllTeacherPerCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<GetAllSessionTime, ActionResult<List<SessionTime>>>, GetAllSessionTimeHandler>();
+builder.Services.AddTransient<IRequestHandler<AssignTeacherToCourseCommand, ActionResult<TeacherPerCourse>>, AssignTeacherToCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<AssignTeacherPerCoursePerSessionTimeCommand, ActionResult<TeacherPerCoursePerSessionTime>>, AssignTeacherPerCoursePerSessionTimeHandler>();
+builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();
 
 builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+builder.Services.AddTransient<IStudentsHelper, StudentsHelper>();
+builder.Services.AddTransient<ITeachersHelper, TeachersHelper>();
+builder.Services.AddTransient<IAdminHelper, AdminsHelper>();
+builder.Services.AddTransient<IFirebaseHelper, FirebasesHelper>();
+
 
 builder.Services.AddControllersWithViews();
 

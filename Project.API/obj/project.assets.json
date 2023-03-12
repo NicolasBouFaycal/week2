@@ -2391,76 +2391,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "ProjectName.Application/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "FirebaseAdmin": "2.3.0",
-          "FirebaseAuthentication.net": "3.7.1",
-          "MailKit": "3.4.3",
-          "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
-          "Microsoft.AspNetCore.OData": "8.0.6",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
-          "MimeKit": "3.4.3",
-          "Npgsql": "7.0.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
-        },
-        "compile": {
-          "bin/placeholder/ProjectName.Application.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProjectName.Application.dll": {}
-        }
-      },
-      "ProjectName.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "FirebaseAdmin": "2.3.0",
-          "FirebaseAuthentication.net": "3.7.1",
-          "MailKit": "3.4.3",
-          "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
-          "Microsoft.AspNetCore.OData": "8.0.6",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
-          "MimeKit": "3.4.3",
-          "Npgsql": "7.0.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
-        },
-        "compile": {
-          "bin/placeholder/ProjectName.Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProjectName.Common.dll": {}
-        }
-      },
-      "ProjectName.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "FirebaseAdmin": "2.3.0",
-          "FirebaseAuthentication.net": "3.7.1",
-          "MailKit": "3.4.3",
-          "MediatR": "11.1.0",
-          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
-          "Microsoft.AspNetCore.OData": "8.0.6",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
-          "MimeKit": "3.4.3",
-          "Npgsql": "7.0.2",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
-        },
-        "compile": {
-          "bin/placeholder/ProjectName.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ProjectName.Domain.dll": {}
-        }
-      },
-      "ProjectName.Infrastructure/1.0.0": {
+      "UMS.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2475,16 +2406,65 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
-          "ProjectName.Domain": "1.0.0"
+          "UMS.Common": "1.0.0",
+          "UMS.Domain": "1.0.0",
+          "UMS.Infrastructure": "1.0.0",
+          "UMS.Persistence": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ProjectName.Infrastructure.dll": {}
+          "bin/placeholder/UMS.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProjectName.Infrastructure.dll": {}
+          "bin/placeholder/UMS.Application.dll": {}
         }
       },
-      "ProjectName.Persistence/1.0.0": {
+      "UMS.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/UMS.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UMS.Common.dll": {}
+        }
+      },
+      "UMS.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/UMS.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UMS.Domain.dll": {}
+        }
+      },
+      "UMS.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -2499,13 +2479,37 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
-          "ProjectName.Domain": "1.0.0"
+          "UMS.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ProjectName.Persistence.dll": {}
+          "bin/placeholder/UMS.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProjectName.Persistence.dll": {}
+          "bin/placeholder/UMS.Infrastructure.dll": {}
+        }
+      },
+      "UMS.Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "FirebaseAdmin": "2.3.0",
+          "FirebaseAuthentication.net": "3.7.1",
+          "MailKit": "3.4.3",
+          "MediatR": "11.1.0",
+          "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
+          "Microsoft.AspNetCore.OData": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "MimeKit": "3.4.3",
+          "Npgsql": "7.0.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "UMS.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UMS.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UMS.Persistence.dll": {}
         }
       }
     }
@@ -8216,30 +8220,30 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "ProjectName.Application/1.0.0": {
+    "UMS.Application/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Application/ProjectName.Application.csproj",
-      "msbuildProject": "../ProjectName.Application/ProjectName.Application.csproj"
+      "path": "../ProjectName.Application/UMS.Application.csproj",
+      "msbuildProject": "../ProjectName.Application/UMS.Application.csproj"
     },
-    "ProjectName.Common/1.0.0": {
+    "UMS.Common/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Common/ProjectName.Common.csproj",
-      "msbuildProject": "../ProjectName.Common/ProjectName.Common.csproj"
+      "path": "../ProjectName.Common/UMS.Common.csproj",
+      "msbuildProject": "../ProjectName.Common/UMS.Common.csproj"
     },
-    "ProjectName.Domain/1.0.0": {
+    "UMS.Domain/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Domain/ProjectName.Domain.csproj",
-      "msbuildProject": "../ProjectName.Domain/ProjectName.Domain.csproj"
+      "path": "../ProjectName.Domain/UMS.Domain.csproj",
+      "msbuildProject": "../ProjectName.Domain/UMS.Domain.csproj"
     },
-    "ProjectName.Infrastructure/1.0.0": {
+    "UMS.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Infrastructure/ProjectName.Infrastructure.csproj",
-      "msbuildProject": "../ProjectName.Infrastructure/ProjectName.Infrastructure.csproj"
+      "path": "../ProjectName.Infrastructure/UMS.Infrastructure.csproj",
+      "msbuildProject": "../ProjectName.Infrastructure/UMS.Infrastructure.csproj"
     },
-    "ProjectName.Persistence/1.0.0": {
+    "UMS.Persistence/1.0.0": {
       "type": "project",
-      "path": "../ProjectName.Persistence/ProjectName.Persistence.csproj",
-      "msbuildProject": "../ProjectName.Persistence/ProjectName.Persistence.csproj"
+      "path": "../ProjectName.Persistence/UMS.Persistence.csproj",
+      "msbuildProject": "../ProjectName.Persistence/UMS.Persistence.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8257,13 +8261,13 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "MimeKit >= 3.4.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.3",
-      "ProjectName.Application >= 1.0.0",
-      "ProjectName.Common >= 1.0.0",
-      "ProjectName.Domain >= 1.0.0",
-      "ProjectName.Infrastructure >= 1.0.0",
-      "ProjectName.Persistence >= 1.0.0",
       "RestSharp >= 108.0.3",
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "UMS.Application >= 1.0.0",
+      "UMS.Common >= 1.0.0",
+      "UMS.Domain >= 1.0.0",
+      "UMS.Infrastructure >= 1.0.0",
+      "UMS.Persistence >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -8273,9 +8277,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\Project.API.csproj",
-      "projectName": "Project.API",
-      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\Project.API.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\UMS.API.csproj",
+      "projectName": "UMS.API",
+      "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\UMS.API.csproj",
       "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\obj\\",
       "projectStyle": "PackageReference",
@@ -8298,20 +8302,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\ProjectName.Application.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\ProjectName.Application.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\UMS.Application.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\UMS.Application.csproj"
             },
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\ProjectName.Common.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\UMS.Common.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Common\\UMS.Common.csproj"
             },
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj"
             },
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\ProjectName.Infrastructure.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj"
             },
-            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj": {
-              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\ProjectName.Persistence.csproj"
+            "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj": {
+              "projectPath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj"
             }
           }
         }

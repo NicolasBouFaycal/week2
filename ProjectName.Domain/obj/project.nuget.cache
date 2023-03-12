@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YQdDEkRx+gMVQsGcpwVT3wStK5ForD2F4bAx9EAb0buDPVMs/Lw/nxvfHjU2T1cPbPtyGWuJmqbFzfpZmXw/3Q==",
+  "dgSpecHash": "askCG+/8yp/9cOtkkRohm6SZA3I4WzDLjQzaVk0J5krB8ZA0NqmMhhE4U0gtr0iiODqaYzYbweQqMkdlN39x/Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\ProjectName.Domain.csproj",
+  "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Domain\\UMS.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nicol\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

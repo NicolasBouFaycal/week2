@@ -1,4 +1,4 @@
-﻿namespace ProjectName.Infrastructure.EmailServiceAbstraction
+﻿namespace UMS.Infrastructure.EmailServiceAbstraction
 {
     public interface IEmailService
     {
