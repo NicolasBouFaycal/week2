@@ -33,6 +33,8 @@ namespace UMS.Application.Service
                 CookieOptions options = new CookieOptions();
                 options.Secure = true;
                 controllerBase.Response.Cookies.Append("Token", "Bearer " + firebaseAuthLink.FirebaseToken);
+                var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(firebaseAuthLink.FirebaseToken);
+                var exp = jwtToken.ValidTo;
                 controllerBase.Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
                 
                 var roles = (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == firebaseAuthLink.User.LocalId select rol.Name).FirstOrDefault();
