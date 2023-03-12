@@ -1,5 +1,5 @@
-﻿using ProjectName.Domain.EmailConfiguration;
-using ProjectName.Domain.EmailServiceAbstraction;
+﻿using ProjectName.Infrastructure.EmailConfiguration;
+using ProjectName.Infrastructure.EmailServiceAbstraction;
 using MimeKit;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 

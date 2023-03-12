@@ -5,8 +5,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Project.API.Autnetication;
 using ProjectName.Domain;
-using ProjectName.Domain.EmailServiceAbstraction;
+using ProjectName.Infrastructure.EmailServiceAbstraction;
 using ProjectName.Persistence;
+using Microsoft.AspNetCore.Authorization;
+using Project.API.Aauthorization;
+using System.Security.Claims;
+using CookieAuthenticationDemo.CustomHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +26,34 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddScoped<IEmailService, EmailService>();
+
+builder.Services.AddAuthentication("CookieAuthentication")
+    .AddCookie("CookieAuthentication", config =>
+    {
+        config.Cookie.Name = "UserLoginCookie";
+        config.LoginPath = "";
+        config.AccessDeniedPath = "";
+    }) ;
+builder.Services.AddAuthorization(config =>
+{
+    config.AddPolicy("UserPolicy", policyBuilder =>
+    {
+        policyBuilder.UserRequireCustomClaim(ClaimTypes.Email);
+    });
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureApplicationCookie(options => {
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
+    options.SlidingExpiration = true;
+});
 
 var app = builder.Build();
 
@@ -35,7 +66,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
+
 
 app.MapControllers();
 
