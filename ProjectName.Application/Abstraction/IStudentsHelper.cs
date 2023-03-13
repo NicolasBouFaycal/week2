@@ -12,5 +12,6 @@ namespace UMS.Application.Abstraction
     {
         public ActionResult<ClassEnrollment> StudentEnrollToCourse(ControllerBase controllerBase,[FromQuery] int courseId);
         public ActionResult<List<TeacherPerCourse>> GetAllClassesForStudent(ControllerBase controllerBase);
+
     }
 }

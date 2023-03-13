@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UMS.Application.Commands;
+using UMS.Common.Abstraction;
 using UMS.Domain;
 
 namespace UMS.API.Controllers
@@ -14,10 +15,11 @@ namespace UMS.API.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IMediator _mediator;
-
-        public AdminController( IMediator mediator)
+        private readonly IUploadImgHelper _uploadImgHelper;
+        public AdminController(IUploadImgHelper uploadImgHelper, IMediator mediator)
         {
             _mediator = mediator;   
+            _uploadImgHelper = uploadImgHelper; 
         }
        
         [HttpPost(template: "CreateCourse")]
@@ -26,39 +28,21 @@ namespace UMS.API.Controllers
             var result = await _mediator.Send(new CreateCourseCommand(this,name,maxStudentsNumber,startyear,startMonth,startDay,endyear,endMonth,endDay));
             return result;
         }
-            /*[HttpPost(template: "CreateRole")]
-            public async Task<ActionResult<Role>> CreateRole([FromQuery] string Name)
-            {
-                try
-                {
-                    
-
-                    Role r=new Role();
-                    r.Name = Name;
-                    r.Id = 3;
-                    if (r == null)
-                        throw new InvalidOperationException("INsert Data");
-                    _context.Add(r);
-                    _context.SaveChanges();
-                    return Ok(r);
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("connection not find");
-
-                }
-            }*/
-       /* [HttpPost(template: "CreateUser")]
-        public async Task<ActionResult<Role>> CreateUser([FromQuery] string Name, [FromQuery] string Email, [FromQuery] string FireBaseId)
+        [HttpPost(template: "UploadImage")]
+        public ActionResult<string> UploadImage([FromForm] UploadImg obj)
+        {
+            return _uploadImgHelper.UploadProfile(this, obj);
+        }
+        /*[HttpPost(template: "CreateRole")]
+        public async Task<ActionResult<Role>> CreateRole([FromQuery] string Name)
         {
             try
             {
-                User r = new User();
+
+
+                Role r=new Role();
                 r.Name = Name;
-                r.Email=Email;
-                r.KeycloakId=FireBaseId;
-                r.Id = 5;
-                r.RoleId = 3;
+                r.Id = 3;
                 if (r == null)
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(r);
@@ -71,5 +55,28 @@ namespace UMS.API.Controllers
 
             }
         }*/
+        /* [HttpPost(template: "CreateUser")]
+         public async Task<ActionResult<Role>> CreateUser([FromQuery] string Name, [FromQuery] string Email, [FromQuery] string FireBaseId)
+         {
+             try
+             {
+                 User r = new User();
+                 r.Name = Name;
+                 r.Email=Email;
+                 r.KeycloakId=FireBaseId;
+                 r.Id = 5;
+                 r.RoleId = 3;
+                 if (r == null)
+                     throw new InvalidOperationException("INsert Data");
+                 _context.Add(r);
+                 _context.SaveChanges();
+                 return Ok(r);
+             }
+             catch (Exception ex)
+             {
+                 throw new Exception("connection not find");
+
+             }
+         }*/
     }
 }

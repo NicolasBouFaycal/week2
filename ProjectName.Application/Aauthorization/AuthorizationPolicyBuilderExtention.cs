@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace  UMS.Common.CustomHandler
+namespace  UMS.Application.CustomHandler
 {
     public static class AuthorizationPolicyBuilderExtension
     {

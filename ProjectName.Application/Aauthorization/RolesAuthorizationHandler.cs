@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using UMS.Persistence;
 
-namespace UMS.Common.Aauthorization
+namespace UMS.Application.Aauthorization
 {
     public class RolesAuthorizationHandler : AuthorizationHandler<RolesAuthorizationRequirement>, IAuthorizationHandler
     {

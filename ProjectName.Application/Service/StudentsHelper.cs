@@ -75,5 +75,6 @@ namespace UMS.Application.Service
             }
             throw new Exception("connection add Class because times up");
         }
+       
     }
 }

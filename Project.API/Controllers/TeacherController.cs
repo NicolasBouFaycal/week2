@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using UMS.Application.Abstraction;
 using UMS.Application.Commands;
 using UMS.Application.Queries;
+using UMS.Common;
+using UMS.Common.Abstraction;
 using UMS.Domain;
 using UMS.Persistence;
-
 namespace UMS.API.Controllers
 {
     
@@ -17,12 +18,16 @@ namespace UMS.API.Controllers
     public class TeacherController : ControllerBase
     {
         private readonly IMediator _mediator;
+        public static IWebHostEnvironment _environment;
+        public readonly MyDbContext _context;
+        private readonly IUploadImgHelper _uploadImgHelper ;
 
-        public TeacherController( ITeachersHelper teachersHelper, IMediator mediator)
+        public TeacherController(IUploadImgHelper uploadImgHelper, ITeachersHelper teachersHelper, IMediator mediator, IWebHostEnvironment environment, MyDbContext context)
         {
-           
             _mediator = mediator;
-            
+            _environment = environment;
+            _context = context;
+            _uploadImgHelper = uploadImgHelper;
         }
         [HttpPost(template: "SessionTime")]
         public async Task<ActionResult<SessionTime>> InserSessionTime([FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration)
@@ -63,6 +68,11 @@ namespace UMS.API.Controllers
         {
             var result = await _mediator.Send(new AssignTeacherPerCoursePerSessionTimeCommand(this, teacherPerCourseId, sessionTimeId));
             return result;
+        }
+        [HttpPost(template: "UploadImage")]
+        public ActionResult<string> UploadImage([FromForm] UploadImg obj)
+        {
+            return _uploadImgHelper.UploadProfile(this,obj);
         }
     }
 }

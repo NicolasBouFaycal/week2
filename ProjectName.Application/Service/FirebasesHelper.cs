@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,17 @@ namespace UMS.Application.Service
                 controllerBase.Response.Cookies.Append("Token", "Bearer " + firebaseAuthLink.FirebaseToken);
                 var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(firebaseAuthLink.FirebaseToken);
                 var exp = jwtToken.ValidTo;
+                if (exp < DateTime.UtcNow)
+                {
+                    // Token has expired, return an error response
+                    return controllerBase.Unauthorized();
+                }
+                //var client = new HttpClient();
+                // var token = firebaseAuthLink.FirebaseToken;
+                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                // controllerBase.Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
                 controllerBase.Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
-                
+
                 var roles = (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == firebaseAuthLink.User.LocalId select rol.Name).FirstOrDefault();
                 var userClaims = new List<Claim>()
                 {

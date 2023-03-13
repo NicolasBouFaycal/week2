@@ -92,6 +92,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.4.3, )"
@@ -202,6 +206,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
             },
             "MimeKit": {
               "target": "Package",
@@ -318,6 +326,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
             "MimeKit": {
               "target": "Package",
               "version": "[3.4.3, )"
@@ -432,6 +444,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.1, )"
             },
             "MimeKit": {
               "target": "Package",

@@ -13,8 +13,10 @@ using UMS.Application.Queries;
 using Microsoft.AspNetCore.Mvc;
 using UMS.Application.Handlers;
 using UMS.Application.Commands;
-using UMS.Common.CustomHandler;
-using UMS.Common.Aauthorization;
+using UMS.Application.CustomHandler;
+using UMS.Application.Aauthorization;
+using UMS.Common.Abstraction;
+using UMS.API.uploadImg;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,8 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IUploadImgHelper, InsertProfilePicHelper>();
+
 
 builder.Services.AddAuthentication("CookieAuthentication")
     .AddCookie("CookieAuthentication", config =>

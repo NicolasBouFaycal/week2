@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using static UMS.Common.CustomHandler.AuthorizationPolicyBuilderExtension;
+using static UMS.Application.CustomHandler.AuthorizationPolicyBuilderExtension;
 
-namespace UMS.Common.Aauthorization
+namespace UMS.Application.Aauthorization
 {
     public class PoliciesAuthorizationHandler : AuthorizationHandler<CustomUserRequireClaim>
     {

@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using UMS.Domain;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UMS.Domain;
+
 
 namespace UMS.Application.Abstraction
 {
@@ -16,6 +17,7 @@ namespace UMS.Application.Abstraction
         public ActionResult<TeacherPerCourse> AssignTeacherToCourse(ControllerBase controllerBase, [FromQuery] int courseId);
         public ActionResult<TeacherPerCoursePerSessionTime> AssignTeacherPerCoursePerSessionTime(ControllerBase controllerBase,[FromQuery] int TeacherPerCourseId, [FromQuery] int SessionTimeId);
         public ActionResult<SessionTime> InserSessionTime(ControllerBase controllerBase,[FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration);
+
 
     }
 }
