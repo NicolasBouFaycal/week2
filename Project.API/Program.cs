@@ -17,6 +17,7 @@ using UMS.Application.CustomHandler;
 using UMS.Application.Aauthorization;
 using UMS.Common.Abstraction;
 using UMS.API.uploadImg;
+using UMS.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +103,8 @@ app.UseAuthentication();
     routeBuilder.EnableDependencyInjection();
     routeBuilder.Select().OrderBy().Filter();
 });*/
+app.UseMiddleware<TokenExpirationMiddleware>();
+
 app.UseRouting();
 app.UseAuthorization();
 

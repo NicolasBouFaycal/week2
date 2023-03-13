@@ -33,8 +33,10 @@ namespace UMS.Application.Service
                 FirebaseAuthLink firebaseAuthLink = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email, password);
                 CookieOptions options = new CookieOptions();
                 options.Secure = true;
-                controllerBase.Response.Cookies.Append("Token", "Bearer " + firebaseAuthLink.FirebaseToken);
+                controllerBase.Response.Cookies.Append("Token",firebaseAuthLink.FirebaseToken);
+                controllerBase.Response.Cookies.Append("RefreshToken",firebaseAuthLink.RefreshToken);
                 var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(firebaseAuthLink.FirebaseToken);
+
                 var exp = jwtToken.ValidTo;
                 if (exp < DateTime.UtcNow)
                 {
