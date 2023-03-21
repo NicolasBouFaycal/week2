@@ -17,7 +17,7 @@ using UMS.Application.CustomHandler;
 using UMS.Application.Aauthorization;
 using UMS.Common.Abstraction;
 using UMS.API.uploadImg;
-using UMS.API.Middleware;
+using UMS.Infrastructure.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 

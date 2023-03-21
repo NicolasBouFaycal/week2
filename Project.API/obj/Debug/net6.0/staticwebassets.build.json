@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "y1QmB+BkdpK7jDfsC6dQWTbhxJBWe+JNXp3QTc4MkpM=",
+  "Hash": "7Lhzf4JWgb/rO/6N+dexjaYFQCzXxpkMhkAKiy1bJmw=",
   "Source": "UMS.API",
   "BasePath": "_content/UMS.API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\Upload\\s1.png",
+      "Identity": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\Upload\\s.png",
       "SourceId": "UMS.API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\",
       "BasePath": "_content/UMS.API",
-      "RelativePath": "Upload/s1.png",
+      "RelativePath": "Upload/s.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Upload\\s1.png"
+      "OriginalItemSpec": "wwwroot\\Upload\\s.png"
     }
   ]
 }
