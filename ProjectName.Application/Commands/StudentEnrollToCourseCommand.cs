@@ -9,13 +9,13 @@ using UMS.Domain;
 
 namespace UMS.Application.Commands
 {
-    public class StudentEnrollToCourseCommand : IRequest<ActionResult<ClassEnrollment>>
+    public class StudentEnrollToCourseCommand : IRequest<string>
     {
-        public ControllerBase _controller { get; set; }
+        public string _userid { get; set; }
         public int _courseId { get; set; }
-        public StudentEnrollToCourseCommand(ControllerBase controller , [FromQuery] int courseId)
+        public StudentEnrollToCourseCommand(string userId ,  int courseId)
         {
-            _controller = controller;
+            _userid = userId;
             _courseId = courseId;   
         }
     }

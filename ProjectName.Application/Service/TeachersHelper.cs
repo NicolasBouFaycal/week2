@@ -67,6 +67,12 @@ namespace UMS.Application.Service
             .Where(c => !_context.TeacherPerCourses
                 .Any(tpc => tpc.CourseId == c.Id))
             .ToList();
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            var courses2 = _context.Courses
+                .Where(course => !course.TeacherPerCourses.Any())
+                .ToList();
+
             if (courses.Count > 0)
             {
                 return courses;

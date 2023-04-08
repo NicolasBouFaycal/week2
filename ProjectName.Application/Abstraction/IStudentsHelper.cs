@@ -10,8 +10,8 @@ namespace UMS.Application.Abstraction
 {
     public interface IStudentsHelper
     {
-        public ActionResult<ClassEnrollment> StudentEnrollToCourse(ControllerBase controllerBase,[FromQuery] int courseId);
-        public ActionResult<List<TeacherPerCourse>> GetAllClassesForStudent(ControllerBase controllerBase);
+        public string StudentEnrollToCourse(string userId,int courseId);
+        public List<TeacherPerCourse> GetAllClassesForStudent(string userId);
 
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IuAOUmfG1vkkiLC+WOqlDBbdheE8X+39GoHp4mNnN9GAzLNoXxVhLwObVROp3MQudVBpkjR+djWxSB5gfxdfTw==",
+  "dgSpecHash": "ONAe1U28J7vDKHkKUdn7ujXUTCun7qVTj7AzGVQYwCnlDWZcsfdvaV5iijmsi9+iDmGiK2hwvhbLNvIgoPj6Ow==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Infrastructure\\UMS.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "C:\\Users\\nicol\\.nuget\\packages\\mailkit\\3.4.3\\mailkit.3.4.3.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\nicol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.14\\microsoft.aspnetcore.authentication.jwtbearer.6.0.14.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.odata\\8.0.6\\microsoft.aspnetcore.odata.8.0.6.nupkg.sha512",

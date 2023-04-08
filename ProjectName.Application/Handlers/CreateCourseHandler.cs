@@ -18,6 +18,7 @@ namespace UMS.Application.Handlers
         public CreateCourseHandler(IAdminHelper adminHelper)
         {
             _adminHelper = adminHelper;
+
         }
         public async Task<ActionResult<Course>> Handle(CreateCourseCommand request, CancellationToken cancellationToken)
         {

@@ -11,7 +11,7 @@ using UMS.Domain;
 
 namespace UMS.Application.Handlers
 {
-    public class GetAllCoursesForStudentHandler:IRequestHandler<GetAllClassesForStudent, ActionResult<List<TeacherPerCourse>>>
+    public class GetAllCoursesForStudentHandler:IRequestHandler<GetAllClassesForStudent, List<TeacherPerCourse>>
     {
         private readonly IStudentsHelper _studentsHelper;
         public GetAllCoursesForStudentHandler(IStudentsHelper studentshelper)
@@ -19,10 +19,10 @@ namespace UMS.Application.Handlers
             _studentsHelper = studentshelper;
 
         }
-        public async Task<ActionResult<List<TeacherPerCourse>>> Handle(GetAllClassesForStudent request, CancellationToken cancellationToken)
+        public async Task<List<TeacherPerCourse>>Handle(GetAllClassesForStudent request, CancellationToken cancellationToken)
         {
             
-            return _studentsHelper.GetAllClassesForStudent(request.Controller);
+            return _studentsHelper.GetAllClassesForStudent(request.userid);
         }
 
     }

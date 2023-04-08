@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Http;
+using UMS.Domain.Models;
 using UMS.Persistence;
 
 namespace UMS.Application.Aauthorization
@@ -7,14 +9,19 @@ namespace UMS.Application.Aauthorization
     public class RolesAuthorizationHandler : AuthorizationHandler<RolesAuthorizationRequirement>, IAuthorizationHandler
     {
         public readonly MyDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         public RolesAuthorizationHandler(MyDbContext context)
         {
             _context=context;
+
         }
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context
             , RolesAuthorizationRequirement requirement)
         {
-            if(context.User==null || !context.User.Identity.IsAuthenticated)
+            
+
+            if (context.User==null || !context.User.Identity.IsAuthenticated)
             {
                 context.Fail();
                 return Task.CompletedTask;
@@ -27,7 +34,9 @@ namespace UMS.Application.Aauthorization
             else
             {
                 var claims = context.User.Claims;
-                var userid = claims.FirstOrDefault(c => c.Type == "userId").Value;
+
+                var userid = Uid.uid;
+
                 var roles=requirement.AllowedRoles;
 
                 var roleName= (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == userid select rol.Name).FirstOrDefault();

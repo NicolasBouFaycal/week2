@@ -6,6 +6,7 @@ using UMS.Application.Commands;
 using UMS.Application.Queries;
 using UMS.Common.Abstraction;
 using UMS.Domain;
+using UMS.Domain.Models;
 using UMS.Infrastructure.EmailServiceAbstraction;
 
 namespace UMS.API.Controllers
@@ -13,7 +14,7 @@ namespace UMS.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles ="Student")]
+    [Authorize(Roles = "Student")]
     public class StudentController : ControllerBase
     {
        
@@ -33,15 +34,25 @@ namespace UMS.API.Controllers
         [EnableQuery]
         public async Task<ActionResult<List<TeacherPerCourse>>> GetAllClassesForStudent()
         {
-            var query = new GetAllClassesForStudent(this);
+            var userid="";
+            if (HttpContext.Items.TryGetValue("userId", out var userId))
+            {
+                userid = userId.ToString();
+            }
+
+            var nicolas = Uid.uid;
+            var query = new GetAllClassesForStudent(userid);
             var result = await _mediator.Send(query);
             return result;
 
         }
+
         [HttpPost(template: "StudentEnrollToCourse")]
-        public async Task<ActionResult<ClassEnrollment>> StudentEnrollToCourse([FromQuery] int courseId)
+        public async Task<ActionResult<String>> StudentEnrollToCourse([FromBody] int courseId)
         {
-             var result = await _mediator.Send(new StudentEnrollToCourseCommand(this, courseId));
+            var userid = Request.Headers["Authentication"];
+
+            var result = await _mediator.Send(new StudentEnrollToCourseCommand(userid, courseId));
              return result;
            
         }

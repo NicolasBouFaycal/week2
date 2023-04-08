@@ -12,7 +12,7 @@ using UMS.Domain;
 
 namespace UMS.Application.Handlers
 {
-    public class StudentEnrollToCourseHandler : IRequestHandler<StudentEnrollToCourseCommand, ActionResult<ClassEnrollment>>
+    public class StudentEnrollToCourseHandler : IRequestHandler<StudentEnrollToCourseCommand, string>
     {
         private readonly IStudentsHelper _studentsHelper;
 
@@ -20,9 +20,9 @@ namespace UMS.Application.Handlers
         {
             _studentsHelper = studentshelper;
         }
-        public async Task<ActionResult<ClassEnrollment>> Handle(StudentEnrollToCourseCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(StudentEnrollToCourseCommand request, CancellationToken cancellationToken)
         {
-            return _studentsHelper.StudentEnrollToCourse(request._controller,request._courseId);
+            return _studentsHelper.StudentEnrollToCourse(request._userid,request._courseId);
         }
     }
 }

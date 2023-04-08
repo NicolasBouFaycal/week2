@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EOVnej7YaAo8e1eU5jnvmdG2sm5+FIZeTQY+ENS8DoSK5IuTviF+KPBIV6xNae0hryfYS1R0R0PNG8lYU2slow==",
+  "dgSpecHash": "ZoFU78vu77/hWG8JFJczYoQPk9clkqTup79Bbs+GV2Tgtc8hfloLL8gPHgJsEQxOqCzRALjfP/G+yFv76W94kw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Application\\UMS.Application.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "C:\\Users\\nicol\\.nuget\\packages\\mailkit\\3.4.3\\mailkit.3.4.3.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
-    "C:\\Users\\nicol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.0.0\\mediatr.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.14\\microsoft.aspnetcore.authentication.jwtbearer.6.0.14.nupkg.sha512",

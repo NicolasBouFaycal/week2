@@ -9,12 +9,12 @@ using UMS.Domain;
 
 namespace UMS.Application.Queries
 {
-    public class GetAllClassesForStudent : IRequest<ActionResult<List<TeacherPerCourse>>>
+    public class GetAllClassesForStudent : IRequest<List<TeacherPerCourse>>
     {
-        public ControllerBase Controller { get; set; }
-        public GetAllClassesForStudent(ControllerBase controller)
+        public string userid { get; set; }
+        public GetAllClassesForStudent(string userid)
         {
-            Controller = controller;
+            this.userid = userid;
         }
     }
 }
