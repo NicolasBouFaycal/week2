@@ -20,6 +20,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Intersoft.Crosslight;
+using Scrutor;
+using UMS.API.Handler;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +31,8 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
     scan.FromAssembliesOf(typeof(IRequestHandler<,>))
         .AddClasses(classes => classes.AssignableTo(typeof(IRequestHandler<,>)))
         .AsImplementedInterfaces()
-        .WithTransientLifetime());*/
-
+        .WithTransientLifetim
+*/
 // Add services to the container.
 
 /*builder.Services.AddControllers().AddOData(options =>
@@ -135,7 +138,7 @@ builder.Services.AddScoped<IUploadImgHelper, InsertProfilePicHelper>();
 });*/
 
 
-builder.Services.AddTransient<IRequestHandler<CoursesCommand, ActionResult<Course>>, CreateCourseHandler>();
+/*builder.Services.AddTransient<IRequestHandler<CoursesCommand, ActionResult<Course>>, CreateCourseHandler>();
 builder.Services.AddTransient<IRequestHandler<AllClassesForStudent, List<TeacherPerCourse>>, AllCoursesForStudentHandler>();
 builder.Services.AddTransient<IRequestHandler<StudentEnrollToCoursesCommand, string>, StudentEnrollToCoursesHandler>();
 builder.Services.AddTransient<IRequestHandler<InserSessionTimeCommand, ActionResult<SessionTime>>, InserSessionTimeHandler>();
@@ -144,8 +147,20 @@ builder.Services.AddTransient<IRequestHandler<AllTeacherPerCourse, ActionResult<
 builder.Services.AddTransient<IRequestHandler<AllSessionTime, ActionResult<List<SessionTime>>>, AllSessionTimeHandler>();
 builder.Services.AddTransient<IRequestHandler<AssignTeacherToCourseCommand, ActionResult<TeacherPerCourse>>, AssignTeacherToCourseHandler>();
 builder.Services.AddTransient<IRequestHandler<AssignTeacherPerCoursePerSessionTimeCommand, ActionResult<TeacherPerCoursePerSessionTime>>, AssignTeacherPerCoursePerSessionTimeHandler>();
-builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();
+builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();*/
 
+builder.Services.AddHandlersWithTransientLifetime(
+    typeof(CreateCourseHandler),
+    typeof(AllCoursesForStudentHandler),
+    typeof(StudentEnrollToCoursesHandler),
+    typeof(InserSessionTimeHandler),
+    typeof(AllCoursesHandler),
+    typeof(AllTeacherPerCourseHandler),
+    typeof(AllSessionTimeHandler),
+    typeof(AssignTeacherToCourseHandler),
+    typeof(AssignTeacherPerCoursePerSessionTimeHandler),
+    typeof(LoginHandler)
+);
 
 
 

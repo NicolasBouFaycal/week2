@@ -23,9 +23,11 @@ namespace UMS.API.Controllers
         }
        
         [HttpPost("Courses")]
-        public async Task<ActionResult<Course>> Courses([FromQuery] string name, [FromQuery] int maxStudentsNumber, [FromQuery] int startyear, [FromQuery] int startMonth, [FromQuery] int startDay, [FromQuery] int endyear, [FromQuery] int endMonth, [FromQuery] int endDay)
+        public async Task<ActionResult<Course>> Courses([FromBody] Course course)
         {
-            var result = await _mediator.Send(new CoursesCommand(this,name,maxStudentsNumber,startyear,startMonth,startDay,endyear,endMonth,endDay));
+            //var result = await _mediator.Send(new CoursesCommand(name,maxStudentsNumber,startyear,startMonth,startDay,endyear,endMonth,endDay));
+            var result = await _mediator.Send(new CoursesCommand(course.Name,course.MaxStudentsNumber, course.EnrolmentDateRange));
+
             return result;
         }
         [HttpPost(template: "UploadImage")]

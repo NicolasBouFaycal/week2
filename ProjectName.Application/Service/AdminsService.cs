@@ -19,7 +19,7 @@ namespace UMS.Application.Service
         {
             _context = context;
         }
-        public ActionResult<Course> Courses(ControllerBase controllerBase,[FromQuery] string name, [FromQuery] int maxStudentsNumber, [FromQuery] int startyear, [FromQuery] int startMonth, [FromQuery] int startDay, [FromQuery] int endyear, [FromQuery] int endMonth, [FromQuery] int endDay)
+        /*public Course Courses( string name,  int maxStudentsNumber,  int startyear,  int startMonth,  int startDay,  int endyear,  int endMonth,  int endDay)
         {
             try
             {
@@ -36,7 +36,30 @@ namespace UMS.Application.Service
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(tm);
                 _context.SaveChanges();
-                return controllerBase.Ok(tm);
+                return tm;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("change course id");
+
+            }
+        }*/
+        public Course Courses(string name, int? maxStudentsNumber, NpgsqlRange<DateOnly>? EnrolmentDateRange)
+        {
+            try
+            {
+               
+
+                Course tm = new Course();
+                tm.EnrolmentDateRange = EnrolmentDateRange;
+                tm.Name = name;
+                tm.MaxStudentsNumber = maxStudentsNumber;
+                tm.Id = 8;
+                if (tm == null)
+                    throw new InvalidOperationException("INsert Data");
+                _context.Add(tm);
+                _context.SaveChanges();
+                return tm;
             }
             catch (Exception ex)
             {

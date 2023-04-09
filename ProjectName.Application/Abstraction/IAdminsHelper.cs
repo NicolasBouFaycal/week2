@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace UMS.Application.Abstraction
 {
     public interface IAdminsHelper
     {
-        public ActionResult<Course> Courses(ControllerBase controllerBase,[FromQuery] string Name, [FromQuery] int MaxStudentsNumber, [FromQuery] int startyear, [FromQuery] int startMonth, [FromQuery] int startDay, [FromQuery] int endyear, [FromQuery] int endMonth, [FromQuery] int endDay);
+        // public Course Courses( string Name, int MaxStudentsNumber,  int startyear,  int startMonth,  int startDay,  int endyear,  int endMonth,  int endDay);
+        public Course Courses(string Name, int? MaxStudentsNumber, NpgsqlRange<DateOnly>? EnrolmentDateRange);
 
     }
 }
