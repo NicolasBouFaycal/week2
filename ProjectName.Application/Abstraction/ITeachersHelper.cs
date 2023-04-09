@@ -11,9 +11,9 @@ namespace UMS.Application.Abstraction
 {
     public interface ITeachersHelper
     {
-        public  ActionResult<List<Course>> GetAllCourses();
-        public ActionResult<List<TeacherPerCourse>> GetAllTeacherPerCourse(ControllerBase controllerBase);
-        public ActionResult<List<SessionTime>> GetAllSessionTime(ControllerBase controllerBase);
+        public  ActionResult<List<Course>> AllCourses();
+        public ActionResult<List<TeacherPerCourse>> AllTeacherPerCourse(ControllerBase controllerBase);
+        public ActionResult<List<SessionTime>> AllSessionTime(ControllerBase controllerBase);
         public ActionResult<TeacherPerCourse> AssignTeacherToCourse(ControllerBase controllerBase, [FromQuery] int courseId);
         public ActionResult<TeacherPerCoursePerSessionTime> AssignTeacherPerCoursePerSessionTime(ControllerBase controllerBase,[FromQuery] int TeacherPerCourseId, [FromQuery] int SessionTimeId);
         public ActionResult<SessionTime> InserSessionTime(ControllerBase controllerBase,[FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration);

@@ -14,7 +14,6 @@ using System.Reflection;
 using UMS.Application.Commands;
 using Microsoft.AspNetCore.Mvc;
 using UMS.Domain;
-using UMS.Application.Handlers;
 using UMS.Application.Queries;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -54,7 +53,7 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotnetClaimAuthorization", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "DDD Architecture", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -136,13 +135,13 @@ builder.Services.AddScoped<IUploadImgHelper, InsertProfilePicHelper>();
 });*/
 
 
-builder.Services.AddTransient<IRequestHandler<CreateCourseCommand, ActionResult<Course>>, CreateCourseHandler>();
-builder.Services.AddTransient<IRequestHandler<GetAllClassesForStudent, List<TeacherPerCourse>>, GetAllCoursesForStudentHandler>();
-builder.Services.AddTransient<IRequestHandler<StudentEnrollToCourseCommand, string>, StudentEnrollToCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<CoursesCommand, ActionResult<Course>>, CreateCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<AllClassesForStudent, List<TeacherPerCourse>>, AllCoursesForStudentHandler>();
+builder.Services.AddTransient<IRequestHandler<StudentEnrollToCoursesCommand, string>, StudentEnrollToCoursesHandler>();
 builder.Services.AddTransient<IRequestHandler<InserSessionTimeCommand, ActionResult<SessionTime>>, InserSessionTimeHandler>();
-builder.Services.AddTransient<IRequestHandler<GetAllCourses, ActionResult<List<Course>>>, GetAllCoursesHandler>();
-builder.Services.AddTransient<IRequestHandler<GetAllTeacherPerCourse, ActionResult<List<TeacherPerCourse>>>, GetAllTeacherPerCourseHandler>();
-builder.Services.AddTransient<IRequestHandler<GetAllSessionTime, ActionResult<List<SessionTime>>>, GetAllSessionTimeHandler>();
+builder.Services.AddTransient<IRequestHandler<AllCourses, ActionResult<List<Course>>>, AllCoursesHandler>();
+builder.Services.AddTransient<IRequestHandler<AllTeacherPerCourse, ActionResult<List<TeacherPerCourse>>>, AllTeacherPerCourseHandler>();
+builder.Services.AddTransient<IRequestHandler<AllSessionTime, ActionResult<List<SessionTime>>>, AllSessionTimeHandler>();
 builder.Services.AddTransient<IRequestHandler<AssignTeacherToCourseCommand, ActionResult<TeacherPerCourse>>, AssignTeacherToCourseHandler>();
 builder.Services.AddTransient<IRequestHandler<AssignTeacherPerCoursePerSessionTimeCommand, ActionResult<TeacherPerCoursePerSessionTime>>, AssignTeacherPerCoursePerSessionTimeHandler>();
 builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();
@@ -151,10 +150,10 @@ builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<st
 
 
 //builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
-builder.Services.AddTransient<IStudentsHelper, StudentsHelper>();
-builder.Services.AddTransient<ITeachersHelper, TeachersHelper>();
-builder.Services.AddTransient<IAdminHelper, AdminsHelper>();
-builder.Services.AddTransient<IFirebaseHelper, FirebasesHelper>();
+builder.Services.AddTransient<IStudentsHelper, StudentsService>();
+builder.Services.AddTransient<ITeachersHelper, TeachersService>();
+builder.Services.AddTransient<IAdminsHelper, AdminsService>();
+builder.Services.AddTransient<IAuthenticationHelper, AuthenticationService>();
 
 
 builder.Services.AddControllersWithViews();

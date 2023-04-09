@@ -29,7 +29,7 @@ namespace UMS.API.Middleware
         public async Task Invoke(HttpContext context)
         {
             var path = context.Request.Path;
-            if (path.StartsWithSegments("/api/Firebase/Login"))
+            if (path.StartsWithSegments("/api/Authentication/Login"))
             {
                 await _next(context);
                 return;

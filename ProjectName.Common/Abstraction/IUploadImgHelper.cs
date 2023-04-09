@@ -10,7 +10,7 @@ namespace UMS.Common.Abstraction
 {
     public interface IUploadImgHelper
     {
-        public ActionResult<string> UploadProfile(ControllerBase controllerBase, [FromForm] UploadImg obj);
+        public  ActionResult<string> UploadProfileAsync( [FromForm] UploadImg obj);
 
     }
 }
