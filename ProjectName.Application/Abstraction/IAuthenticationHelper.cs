@@ -9,7 +9,7 @@ namespace UMS.Application.Abstraction
 {
     public interface IAuthenticationHelper
     {
-        public Task<ActionResult<string>> Login(ControllerBase controllerBase, [FromQuery] string email, [FromQuery] string password);
+        public Task<string> Login( string email,  string password);
 
     }
 }

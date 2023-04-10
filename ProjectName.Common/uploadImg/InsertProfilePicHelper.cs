@@ -22,7 +22,7 @@ namespace UMS.API.uploadImg
             _context = context;
 
         }
-        public  ActionResult<string> UploadProfileAsync( [FromForm] UploadImg obj)
+        public  string UploadProfileAsync(UploadImg obj)
         {
             /* string path;
              try

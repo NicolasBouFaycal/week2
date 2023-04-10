@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wKL2tAuyDeJLhnKR3ghigUNyfrlbZIMjLVsMC1oIUVY=",
+  "Hash": "oq5kay4LQnAw8KMJ1dTcmZLl2l3pBzmriXrJh3gS6p4=",
   "Source": "UMS.API",
   "BasePath": "_content/UMS.API",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\79e80e55-a49d-4d02-b9d6-15fa5d5f8c7f.png"
+    },
+    {
+      "Identity": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\e138367c-4cbf-44a2-b64f-13ecd737cf4a.png",
+      "SourceId": "UMS.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\",
+      "BasePath": "_content/UMS.API",
+      "RelativePath": "e138367c-4cbf-44a2-b64f-13ecd737cf4a.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\e138367c-4cbf-44a2-b64f-13ecd737cf4a.png"
     },
     {
       "Identity": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\wwwroot\\Upload\\s.png",

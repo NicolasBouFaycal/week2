@@ -43,7 +43,7 @@ namespace UMS.API.Controllers
 
         }
 
-        [HttpPost(template: "StudentEnrollToCourses")]
+        [HttpPost("StudentEnrollToCourses")]
         public async Task<ActionResult<String>> StudentEnrollToCourses([FromBody] int courseId)
         {
             var userid = Request.Headers["Authentication"];
@@ -52,7 +52,7 @@ namespace UMS.API.Controllers
              return result;
            
         }
-        [HttpPost(template: "UploadImage")]
+        [HttpPost("UploadImage")]
         public ActionResult<string> UploadImage([FromForm] UploadImg obj)
         {
             return _uploadImgHelper.UploadProfileAsync(obj);

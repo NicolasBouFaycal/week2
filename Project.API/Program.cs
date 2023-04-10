@@ -23,6 +23,7 @@ using Microsoft.AspNetCore.Authorization;
 using Intersoft.Crosslight;
 using Scrutor;
 using UMS.API.Handler;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +38,8 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 /*builder.Services.AddControllers().AddOData(options =>
 options.Select().Filter().OrderBy());*/
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
 
 builder.Services.AddControllers(options =>
     options.Filters.Add(new Microsoft.AspNetCore.Mvc.RequireHttpsAttribute()))
@@ -45,6 +48,7 @@ builder.Services.AddControllers(options =>
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     });
 
 
@@ -153,12 +157,12 @@ var handlerTypes = new Type[]
     typeof(CreateCourseHandler),
     typeof(AllCoursesForStudentHandler),
     typeof(StudentEnrollToCoursesHandler),
-    typeof(InserSessionTimeHandler),
+    typeof(SessionTimeHandler),
     typeof(AllCoursesHandler),
     typeof(AllTeacherPerCourseHandler),
     typeof(AllSessionTimeHandler),
-    typeof(AssignTeacherToCourseHandler),
-    typeof(AssignTeacherPerCoursePerSessionTimeHandler),
+    typeof(TeacherToCourseHandler),
+    typeof(TeacherPerCoursePerSessionTimeHandler),
     typeof(LoginHandler)
 };
 builder.Services.AddMyServices(handlerTypes);

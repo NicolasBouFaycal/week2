@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using UMS.Application.Abstraction;
 using UMS.Application.Commands;
 using UMS.Application.Queries;
@@ -29,10 +30,10 @@ namespace UMS.API.Controllers
             _context = context;
             _uploadImgHelper = uploadImgHelper;
         }
-        [HttpPost(template: "SessionTime")]
-        public async Task<ActionResult<SessionTime>> InserSessionTime([FromQuery] DateTime StartTimeYYYY_MM_DD, [FromQuery] DateTime EndTimeYYYY_MM_DD, [FromQuery] int Duration)
+        [HttpPost("SessionTime")]
+        public async Task<ActionResult<SessionTime>> SessionTime([FromBody] SessionTime sessionTime)
         {
-            var result = await _mediator.Send(new InserSessionTimeCommand(this, StartTimeYYYY_MM_DD, EndTimeYYYY_MM_DD, Duration));
+            var result = await _mediator.Send(new SessionTimeCommand(sessionTime.StartTime, sessionTime.EndTime , sessionTime.Duration));
             return result;
         }
         [HttpGet("AllCourses")]
@@ -45,28 +46,28 @@ namespace UMS.API.Controllers
         [HttpGet("AllTeacherPerCourse")]
         public async Task<ActionResult<List<TeacherPerCourse>>> AllTeacherPerCourse()
         {
-            var result = await _mediator.Send(new AllTeacherPerCourse(this));
+            var result = await _mediator.Send(new AllTeacherPerCourse());
             return result;
 
         }
         [HttpGet("AllSessionTime")]
         public async Task<ActionResult<List<SessionTime>>> AllSessionTime()
         {
-            var result = await _mediator.Send(new AllSessionTime(this));
+            var result = await _mediator.Send(new AllSessionTime());
             return result;
 
         }
 
-        [HttpPost(template: "AssignTeacherToCourse")]
-        public async Task<ActionResult<TeacherPerCourse>> AssignTeacherToCourse([FromQuery] int courseId)
+        [HttpPost("TeacherToCourse")]
+        public async Task<ActionResult<TeacherPerCourse>> TeacherToCourse([FromBody] int courseId)
         {
-            var result = await _mediator.Send(new AssignTeacherToCourseCommand(this, courseId));
+            var result = await _mediator.Send(new TeacherToCourseCommand(courseId));
             return result;
         }
-        [HttpPost(template: "AssignTeacher/CourseToSessionTime")]
-        public async Task<ActionResult<TeacherPerCoursePerSessionTime>> AssignTeacherPerCoursePerSessionTime([FromQuery] int teacherPerCourseId, [FromQuery] int sessionTimeId)
+        [HttpPost(template: "Teacher/CourseToSessionTime")]
+        public async Task<ActionResult<TeacherPerCoursePerSessionTime>> TeacherPerCoursePerSessionTime([FromBody(EmptyBodyBehavior = EmptyBodyBehavior.Allow)] TeacherPerCoursePerSessionTime teacherPerCoursePerSessionTime)
         {
-            var result = await _mediator.Send(new AssignTeacherPerCoursePerSessionTimeCommand(this, teacherPerCourseId, sessionTimeId));
+            var result = await _mediator.Send(new TeacherPerCoursePerSessionTimeCommand(Convert.ToInt32(teacherPerCoursePerSessionTime.TeacherPerCourseId), Convert.ToInt32(teacherPerCoursePerSessionTime.SessionTimeId)));
             return result;
         }
         [HttpPost(template: "UploadImage")]

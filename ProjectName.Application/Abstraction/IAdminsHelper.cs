@@ -11,8 +11,8 @@ namespace UMS.Application.Abstraction
 {
     public interface IAdminsHelper
     {
-        // public Course Courses( string Name, int MaxStudentsNumber,  int startyear,  int startMonth,  int startDay,  int endyear,  int endMonth,  int endDay);
-        public Course Courses(string Name, int? MaxStudentsNumber, NpgsqlRange<DateOnly>? EnrolmentDateRange);
+        public Course Courses( string Name, int? MaxStudentsNumber,  int startyear,  int startMonth,  int startDay,  int endyear,  int endMonth,  int endDay);
+        //public Course Courses(string Name, int? MaxStudentsNumber, NpgsqlRange<DateOnly>? EnrolmentDateRange);
 
     }
 }

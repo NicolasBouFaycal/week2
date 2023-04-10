@@ -10,16 +10,14 @@ using UMS.Domain;
 
 namespace UMS.Application.Queries
 {
-    public class AllTeacherPerCourse : IRequest<ActionResult<List<TeacherPerCourse>>>
+    public class AllTeacherPerCourse : IRequest<List<TeacherPerCourse>>
     {
-        public ControllerBase Controller { get; set; }
-        public AllTeacherPerCourse(ControllerBase controller)
+        public AllTeacherPerCourse()
         {
-            Controller = controller;
         }
 
     }
-    public class AllTeacherPerCourseHandler : IRequestHandler<AllTeacherPerCourse, ActionResult<List<TeacherPerCourse>>>
+    public class AllTeacherPerCourseHandler : IRequestHandler<AllTeacherPerCourse, List<TeacherPerCourse>>
     {
         private readonly ITeachersHelper _teachersHelper;
 
@@ -27,9 +25,9 @@ namespace UMS.Application.Queries
         {
             _teachersHelper = teachersHelper;
         }
-        public async Task<ActionResult<List<TeacherPerCourse>>> Handle(AllTeacherPerCourse request, CancellationToken cancellationToken)
+        public async Task<List<TeacherPerCourse>> Handle(AllTeacherPerCourse request, CancellationToken cancellationToken)
         {
-            return _teachersHelper.AllTeacherPerCourse(request.Controller);
+            return _teachersHelper.AllTeacherPerCourse();
         }
     }
 }

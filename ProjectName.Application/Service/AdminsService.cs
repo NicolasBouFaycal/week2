@@ -44,14 +44,18 @@ namespace UMS.Application.Service
 
             }
         }*/
-        public Course Courses(string name, int? maxStudentsNumber, NpgsqlRange<DateOnly>? EnrolmentDateRange)
+        public Course Courses(string name, int? maxStudentsNumber, int startyear, int startMonth, int startDay, int endyear, int endMonth, int endDay)
         {
             try
             {
-               
+
+
+                var startDate = new DateOnly(startyear, startMonth, startDay);
+                var endDate = new DateOnly(endyear, endMonth, endDay - 1);
+                var range = new NpgsqlRange<DateOnly>(startDate, endDate);
 
                 Course tm = new Course();
-                tm.EnrolmentDateRange = EnrolmentDateRange;
+                tm.EnrolmentDateRange = range;
                 tm.Name = name;
                 tm.MaxStudentsNumber = maxStudentsNumber;
                 tm.Id = 8;

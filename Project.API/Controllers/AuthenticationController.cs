@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using UMS.Application.Commands;
+using UMS.Domain.Models;
 
 namespace UMS.API.Controllers
 {
@@ -17,10 +18,10 @@ namespace UMS.API.Controllers
             _mediator = mediator;
             
         }
-        [HttpPost(template: "Login")]
-        public async Task<ActionResult<string>> Login([FromQuery] string email, [FromQuery] string password)
+        [HttpPost("Login")]
+        public async Task<ActionResult<string>> Login([FromBody] Authentication auth)
         {
-            var result = await _mediator.Send(new LoginCommand(this, email, password));
+            var result = await _mediator.Send(new LoginCommand( auth.Email, auth.Password));
             return await result;
         }
     }

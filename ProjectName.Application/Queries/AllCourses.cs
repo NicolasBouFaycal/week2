@@ -10,11 +10,11 @@ using UMS.Domain;
 
 namespace UMS.Application.Queries
 {
-    public class AllCourses : IRequest<ActionResult<List<Course>>>
+    public class AllCourses : IRequest<List<Course>>
     {
     }
 
-    public class AllCoursesHandler : IRequestHandler<AllCourses, ActionResult<List<Course>>>
+    public class AllCoursesHandler : IRequestHandler<AllCourses, List<Course>>
     {
         private readonly ITeachersHelper _teachersHelper;
 
@@ -22,7 +22,7 @@ namespace UMS.Application.Queries
         {
             _teachersHelper = teachersHelper;
         }
-        public async Task<ActionResult<List<Course>>> Handle(AllCourses request, CancellationToken cancellationToken)
+        public async Task<List<Course>> Handle(AllCourses request, CancellationToken cancellationToken)
         {
             return _teachersHelper.AllCourses();
         }
