@@ -148,8 +148,8 @@ builder.Services.AddTransient<IRequestHandler<AllSessionTime, ActionResult<List<
 builder.Services.AddTransient<IRequestHandler<AssignTeacherToCourseCommand, ActionResult<TeacherPerCourse>>, AssignTeacherToCourseHandler>();
 builder.Services.AddTransient<IRequestHandler<AssignTeacherPerCoursePerSessionTimeCommand, ActionResult<TeacherPerCoursePerSessionTime>>, AssignTeacherPerCoursePerSessionTimeHandler>();
 builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();*/
-
-builder.Services.AddHandlersWithTransientLifetime(
+var handlerTypes = new Type[]
+{
     typeof(CreateCourseHandler),
     typeof(AllCoursesForStudentHandler),
     typeof(StudentEnrollToCoursesHandler),
@@ -160,7 +160,8 @@ builder.Services.AddHandlersWithTransientLifetime(
     typeof(AssignTeacherToCourseHandler),
     typeof(AssignTeacherPerCoursePerSessionTimeHandler),
     typeof(LoginHandler)
-);
+};
+builder.Services.AddMyServices(handlerTypes);
 
 
 
