@@ -9,6 +9,7 @@ using UMS.Application.Queries;
 using UMS.Common;
 using UMS.Common.Abstraction;
 using UMS.Domain;
+using UMS.Domain.Models;
 using UMS.Persistence;
 namespace UMS.API.Controllers
 {
@@ -59,9 +60,9 @@ namespace UMS.API.Controllers
         }
 
         [HttpPost("TeacherToCourse")]
-        public async Task<ActionResult<TeacherPerCourse>> TeacherToCourse([FromBody] int courseId)
+        public async Task<ActionResult<TeacherPerCourse>> TeacherToCourse([FromBody] AddTeacherToCourse tc)
         {
-            var result = await _mediator.Send(new TeacherToCourseCommand(courseId));
+            var result = await _mediator.Send(new TeacherToCourseCommand(tc.CourseId));
             return result;
         }
         [HttpPost(template: "Teacher/CourseToSessionTime")]

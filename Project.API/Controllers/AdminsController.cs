@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text;
 using UMS.Application.Commands;
 using UMS.Common.Abstraction;
 using UMS.Domain;
@@ -23,12 +25,19 @@ namespace UMS.API.Controllers
         }
        
         [HttpPost("Courses")]
-        public async Task<ActionResult<Course>> Courses([FromBody] CreateCourse course)
+        public void Courses([FromBody] Course course)
         {
-            var result = await _mediator.Send(new CoursesCommand(course.Name, course.MaxStudentsNumber, course.startyear, course.startMonth, course.startDay, course.endyear, course.endMonth, course.endDay));
+            string jsonData;
+            using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                jsonData = reader.ReadToEnd();
+            }
+            CreateCourse myObject = JsonConvert.DeserializeObject<CreateCourse>(jsonData);
+
+           // var result = await _mediator.Send(new CoursesCommand(course.Name, course.MaxStudentsNumber, course.startyear, course.startMonth, course.startDay, course.endyear, course.endMonth, course.endDay));
             //var result = await _mediator.Send(new CoursesCommand(course.Name,course.MaxStudentsNumber, course.EnrolmentDateRange));
 
-            return result;
+            //return result;
         }
         [HttpPost("UploadImage")]
         public ActionResult<string> UploadImage([FromForm] UploadImg obj)

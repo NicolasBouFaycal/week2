@@ -27,16 +27,23 @@ namespace UMS.Application.Service
         {
             var userid = userId;
             var getStudentId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
-            var classes = _context.TeacherPerCourses
+
+            var courses2 = _context.TeacherPerCourses
+               .Where(course => !course.ClassEnrollments.Any(c=>c.StudentId==getStudentId))
+               .ToList();
+
+
+
+            /*var classes = _context.TeacherPerCourses
             .Where(c => !_context.ClassEnrollments
                 .Any(ce => ce.ClassId == c.Id && ce.StudentId == getStudentId))
-            .ToList();
+            .ToList();*/
 
-            if (classes.Count > 0)
+            if (courses2.Count > 0)
             {
-                return classes;
+                return courses2;
             }
-            throw new Exception("NUll");
+            throw new Exception("You are Enrolled in All Courses");
         }
 
         public string StudentEnrollToCourses(string userId,int teacherPerCouseId)

@@ -12,32 +12,20 @@ using UMS.API.uploadImg;
 using UMS.API.Middleware;
 using System.Reflection;
 using UMS.Application.Commands;
-using Microsoft.AspNetCore.Mvc;
-using UMS.Domain;
 using UMS.Application.Queries;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
-using Intersoft.Crosslight;
-using Scrutor;
 using UMS.API.Handler;
 using System.Text.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-/*builder.Services.Scan(scan =>
-    scan.FromAssembliesOf(typeof(IRequestHandler<,>))
-        .AddClasses(classes => classes.AssignableTo(typeof(IRequestHandler<,>)))
-        .AsImplementedInterfaces()
-        .WithTransientLifetim
-*/
-// Add services to the container.
 
-/*builder.Services.AddControllers().AddOData(options =>
-options.Select().Filter().OrderBy());*/
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
 
@@ -56,7 +44,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -121,37 +108,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 
 });
-
-builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
-builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IUploadImgHelper, InsertProfilePicHelper>();
-
-
-/*builder.Services.AddAuthentication("CookieAuthentication")
-    .AddCookie("CookieAuthentication", config =>
-    {
-        config.Cookie.Name = "UserLoginCookie";
-    }) ;*/
-
-/*builder.Services.AddAuthorization(config =>
-{
-    config.AddPolicy("UserPolicy", policyBuilder =>
-    {
-        policyBuilder.UserRequireCustomClaim(ClaimTypes.Email);
-    });
-});*/
-
-
-/*builder.Services.AddTransient<IRequestHandler<CoursesCommand, ActionResult<Course>>, CreateCourseHandler>();
-builder.Services.AddTransient<IRequestHandler<AllClassesForStudent, List<TeacherPerCourse>>, AllCoursesForStudentHandler>();
-builder.Services.AddTransient<IRequestHandler<StudentEnrollToCoursesCommand, string>, StudentEnrollToCoursesHandler>();
-builder.Services.AddTransient<IRequestHandler<InserSessionTimeCommand, ActionResult<SessionTime>>, InserSessionTimeHandler>();
-builder.Services.AddTransient<IRequestHandler<AllCourses, ActionResult<List<Course>>>, AllCoursesHandler>();
-builder.Services.AddTransient<IRequestHandler<AllTeacherPerCourse, ActionResult<List<TeacherPerCourse>>>, AllTeacherPerCourseHandler>();
-builder.Services.AddTransient<IRequestHandler<AllSessionTime, ActionResult<List<SessionTime>>>, AllSessionTimeHandler>();
-builder.Services.AddTransient<IRequestHandler<AssignTeacherToCourseCommand, ActionResult<TeacherPerCourse>>, AssignTeacherToCourseHandler>();
-builder.Services.AddTransient<IRequestHandler<AssignTeacherPerCoursePerSessionTimeCommand, ActionResult<TeacherPerCoursePerSessionTime>>, AssignTeacherPerCoursePerSessionTimeHandler>();
-builder.Services.AddTransient<IRequestHandler<LoginCommand, Task<ActionResult<string>>>, LoginHandler>();*/
 var handlerTypes = new Type[]
 {
     typeof(CreateCourseHandler),
@@ -169,24 +125,15 @@ builder.Services.AddMyServices(handlerTypes);
 
 
 
-//builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IUploadImgHelper, InsertProfilePicHelper>();
 builder.Services.AddTransient<IStudentsHelper, StudentsService>();
 builder.Services.AddTransient<ITeachersHelper, TeachersService>();
 builder.Services.AddTransient<IAdminsHelper, AdminsService>();
 builder.Services.AddTransient<IAuthenticationHelper, AuthenticationService>();
-
-
 builder.Services.AddControllersWithViews();
-
-/*builder.Services.ConfigureApplicationCookie(options => {
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
-    options.SlidingExpiration = true;
-});*/
-
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -200,24 +147,9 @@ if (app.Environment.IsDevelopment())
 }
 app.MapControllers();
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
-
-
-
-/*app.UseMvc(routeBuilder =>
-{
-    routeBuilder.EnableDependencyInjection();
-    routeBuilder.Select().OrderBy().Filter();
-});*/
 app.UseMiddleware<TokenExpirationMiddleware>();
-
 app.UseRouting();
 app.UseAuthorization();
-
-
-
-
 app.MapControllers();
-
 app.Run();
