@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using UMS.Application.Commands;
-using UMS.Domain.Models;
+using UMS.Domain.LinqModels;
 
 namespace UMS.API.Controllers
 {

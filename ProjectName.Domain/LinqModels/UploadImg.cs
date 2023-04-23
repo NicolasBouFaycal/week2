@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace UMS.Domain
+namespace UMS.Domain.LinqModels
 {
     [Keyless]
 

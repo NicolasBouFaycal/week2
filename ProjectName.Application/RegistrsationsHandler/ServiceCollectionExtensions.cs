@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Scrutor;
 using System.Reflection;
 
-namespace UMS.API.Handler
+namespace UMS.Application.Handler
 {
     public static class ServiceCollectionExtensions
     { 

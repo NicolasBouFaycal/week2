@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMS.Application.Abstraction;
+using UMS.Application.DTO;
 using UMS.Domain;
 
 namespace UMS.Application.Queries

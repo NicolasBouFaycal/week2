@@ -17,6 +17,7 @@ public partial class User
 
     public string Email { get; set; } = null!;
     public string?  ImagePath { get; set; }
+    public string? Branch { get; set; }
 
     public virtual ICollection<ClassEnrollment> ClassEnrollments { get; } = new List<ClassEnrollment>();
 

@@ -8,9 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "UMS.API/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
-          "Intersoft.Crosslight": "6.0.5000.975",
           "MailKit": "3.4.3",
           "MediatR": "11.1.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.1.0",
@@ -24,6 +24,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
           "RestSharp": "108.0.3",
           "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Runtime": "4.3.1",
           "UMS.Application": "1.0.0",
@@ -34,6 +38,29 @@
         },
         "runtime": {
           "UMS.API.dll": {}
+        }
+      },
+      "AutoMapper/12.0.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.0"
+          }
         }
       },
       "Azure.Core/1.24.0": {
@@ -67,6 +94,19 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
+          }
+        }
+      },
+      "Elasticsearch.Net/7.17.5": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Buffers": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "7.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Elasticsearch.Net.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.17.5.0"
           }
         }
       },
@@ -162,14 +202,6 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
-          }
-        }
-      },
-      "Intersoft.Crosslight/6.0.5000.975": {
-        "runtime": {
-          "lib/Intersoft.Crosslight.dll": {
-            "assemblyVersion": "6.0.5000.1",
-            "fileVersion": "6.0.5000.975"
           }
         }
       },
@@ -365,7 +397,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
+      "Microsoft.CSharp/4.7.0": {},
       "Microsoft.Data.SqlClient/5.0.1": {
         "dependencies": {
           "Azure.Identity": "1.6.0",
@@ -980,7 +1012,7 @@
       },
       "Microsoft.IdentityModel.Tokens/6.21.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.7.0",
           "Microsoft.IdentityModel.Logging": "6.21.0",
           "System.Security.Cryptography.Cng": "5.0.0"
         },
@@ -1274,6 +1306,179 @@
           "lib/net6.0/Scrutor.dll": {
             "assemblyVersion": "4.0.0.0",
             "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Serilog/2.12.0": {
+        "runtime": {
+          "lib/net6.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.12.0.0"
+          }
+        }
+      },
+      "Serilog.AspNetCore/6.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.Extensions.Logging": "7.0.0",
+          "Serilog": "2.12.0",
+          "Serilog.Extensions.Hosting": "5.0.1",
+          "Serilog.Formatting.Compact": "1.1.0",
+          "Serilog.Settings.Configuration": "3.3.0",
+          "Serilog.Sinks.Console": "4.0.1",
+          "Serilog.Sinks.Debug": "2.0.0",
+          "Serilog.Sinks.File": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.AspNetCore.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "6.1.0.0"
+          }
+        }
+      },
+      "Serilog.Enrichers.Environment/2.2.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Enrichers.Environment.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.0.0"
+          }
+        }
+      },
+      "Serilog.Exceptions/8.4.0": {
+        "dependencies": {
+          "Serilog": "2.12.0",
+          "System.Reflection.TypeExtensions": "4.7.0"
+        },
+        "runtime": {
+          "lib/net6.0/Serilog.Exceptions.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.4.0.0"
+          }
+        }
+      },
+      "Serilog.Extensions.Hosting/5.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Serilog": "2.12.0",
+          "Serilog.Extensions.Logging": "3.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Extensions.Hosting.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.1.0"
+          }
+        }
+      },
+      "Serilog.Extensions.Logging/3.1.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "7.0.0",
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Extensions.Logging.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "3.1.0.0"
+          }
+        }
+      },
+      "Serilog.Formatting.Compact/1.1.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Formatting.Compact.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "Serilog.Formatting.Elasticsearch/9.0.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Formatting.Elasticsearch.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
+        }
+      },
+      "Serilog.Settings.Configuration/3.3.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyModel": "7.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "7.0.0",
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Settings.Configuration.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Console/4.0.1": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.0.1.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Debug/2.0.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Elasticsearch/9.0.0": {
+        "dependencies": {
+          "Elasticsearch.Net": "7.17.5",
+          "Serilog": "2.12.0",
+          "Serilog.Formatting.Compact": "1.1.0",
+          "Serilog.Formatting.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.File": "5.0.0",
+          "Serilog.Sinks.PeriodicBatching": "3.1.0",
+          "System.Diagnostics.DiagnosticSource": "7.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Sinks.Elasticsearch.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.File/5.0.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching/3.1.0": {
+        "dependencies": {
+          "Serilog": "2.12.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.0.0"
           }
         }
       },
@@ -1571,7 +1776,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.7.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.1",
           "System.Runtime.Extensions": "4.3.0",
@@ -1697,12 +1902,7 @@
           "System.Runtime": "4.3.1"
         }
       },
-      "System.Reflection.TypeExtensions/4.3.0": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
-          "System.Runtime": "4.3.1"
-        }
-      },
+      "System.Reflection.TypeExtensions/4.7.0": {},
       "System.Resources.ResourceManager/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -2067,6 +2267,7 @@
       },
       "UMS.Application/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
           "MailKit": "3.4.3",
@@ -2079,6 +2280,11 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Common": "1.0.0",
           "UMS.Domain": "1.0.0",
@@ -2091,6 +2297,7 @@
       },
       "UMS.Common/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
           "MailKit": "3.4.3",
@@ -2104,6 +2311,11 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0",
           "UMS.Infrastructure": "1.0.0",
@@ -2115,6 +2327,7 @@
       },
       "UMS.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
           "MailKit": "3.4.3",
@@ -2128,6 +2341,11 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1"
         },
         "runtime": {
@@ -2136,6 +2354,7 @@
       },
       "UMS.Infrastructure/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
           "MailKit": "3.4.3",
@@ -2148,6 +2367,11 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -2157,6 +2381,7 @@
       },
       "UMS.Persistence/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "FirebaseAdmin": "2.3.0",
           "FirebaseAuthentication.net": "3.7.1",
           "MailKit": "3.4.3",
@@ -2169,6 +2394,11 @@
           "MimeKit": "3.4.3",
           "Npgsql": "7.0.2",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.3",
+          "Scrutor": "4.2.2",
+          "Serilog.AspNetCore": "6.1.0",
+          "Serilog.Enrichers.Environment": "2.2.0",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -2184,6 +2414,20 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hvV62vl6Hp/WfQ24yzo3Co9+OPl8wH8hApwVtgWpiAynVJkUcs7xvehnSftawL8Pe8FrPffBRM3hwzLQqWDNjA==",
+      "path": "automapper/12.0.1",
+      "hashPath": "automapper.12.0.1.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512"
+    },
     "Azure.Core/1.24.0": {
       "type": "package",
       "serviceable": true,
@@ -2197,6 +2441,13 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
+    },
+    "Elasticsearch.Net/7.17.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-orChsQi1Ceho/NyIylNOn6y4vuGcsbCfMZnCueNN0fzqYEGQmQdPfcVmsR5+3fwpXTgxCdjTUVmqOwvHpCSB+Q==",
+      "path": "elasticsearch.net/7.17.5",
+      "hashPath": "elasticsearch.net.7.17.5.nupkg.sha512"
     },
     "FirebaseAdmin/2.3.0": {
       "type": "package",
@@ -2253,13 +2504,6 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
-    },
-    "Intersoft.Crosslight/6.0.5000.975": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-icRCEz9Fl9HI7LyiUniMnIN8TeI1vRI4QPZQyGDx3sTyX5YxDGNHE2uLXG3ShsI1EOSY4x/Vxycs/QTOL3uqnQ==",
-      "path": "intersoft.crosslight/6.0.5000.975",
-      "hashPath": "intersoft.crosslight.6.0.5000.975.nupkg.sha512"
     },
     "MailKit/3.4.3": {
       "type": "package",
@@ -2422,12 +2666,12 @@
       "path": "microsoft.bcl.asyncinterfaces/5.0.0",
       "hashPath": "microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Microsoft.CSharp/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
+      "path": "microsoft.csharp/4.7.0",
+      "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/5.0.1": {
       "type": "package",
@@ -3031,6 +3275,104 @@
       "path": "scrutor/4.2.2",
       "hashPath": "scrutor.4.2.2.nupkg.sha512"
     },
+    "Serilog/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xaiJLIdu6rYMKfQMYUZgTy8YK7SMZjB4Yk50C/u//Z4OsvxkUfSPJy4nknfvwAC34yr13q7kcyh4grbwhSxyZg==",
+      "path": "serilog/2.12.0",
+      "hashPath": "serilog.2.12.0.nupkg.sha512"
+    },
+    "Serilog.AspNetCore/6.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iMwFUJDN+/yWIPz4TKCliagJ1Yn//SceCYCzgdPwe/ECYUwb5/WUL8cTzRKV+tFwxGjLEV/xpm0GupS5RwbhSQ==",
+      "path": "serilog.aspnetcore/6.1.0",
+      "hashPath": "serilog.aspnetcore.6.1.0.nupkg.sha512"
+    },
+    "Serilog.Enrichers.Environment/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DMrj3A4l65kc4JouQyZjjFv7N58Y7lGsB81kSzorTwUGeI2wrTy7CVwSOfG90/Pcu/HV5bwGrUmxDZ38pON+5Q==",
+      "path": "serilog.enrichers.environment/2.2.0",
+      "hashPath": "serilog.enrichers.environment.2.2.0.nupkg.sha512"
+    },
+    "Serilog.Exceptions/8.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nc/+hUw3lsdo0zCj0KMIybAu7perMx79vu72w0za9Nsi6mWyNkGXxYxakAjWB7nEmYL6zdmhEQRB4oJ2ALUeug==",
+      "path": "serilog.exceptions/8.4.0",
+      "hashPath": "serilog.exceptions.8.4.0.nupkg.sha512"
+    },
+    "Serilog.Extensions.Hosting/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o0VUyt3npAqOJaZ6CiWLFeLYs3CYJwfcAqaUqprzsmj7qYIvorcn8cZLVR8AQX6vzX7gee2bD0sQeA17iO2/Aw==",
+      "path": "serilog.extensions.hosting/5.0.1",
+      "hashPath": "serilog.extensions.hosting.5.0.1.nupkg.sha512"
+    },
+    "Serilog.Extensions.Logging/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IWfem7wfrFbB3iw1OikqPFNPEzfayvDuN4WP7Ue1AVFskalMByeWk3QbtUXQR34SBkv1EbZ3AySHda/ErDgpcg==",
+      "path": "serilog.extensions.logging/3.1.0",
+      "hashPath": "serilog.extensions.logging.3.1.0.nupkg.sha512"
+    },
+    "Serilog.Formatting.Compact/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pNroKVjo+rDqlxNG5PXkRLpfSCuDOBY0ri6jp9PLe505ljqwhwZz8ospy2vWhQlFu5GkIesh3FcDs4n7sWZODA==",
+      "path": "serilog.formatting.compact/1.1.0",
+      "hashPath": "serilog.formatting.compact.1.1.0.nupkg.sha512"
+    },
+    "Serilog.Formatting.Elasticsearch/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r93M8cn7xlmk4lXzVG8mWxgeEXWZ4wRBSHMEhyYOf3Av7M+HJ4+eYAv5zGrp40OCLkZEPzvjVAqK3KkRzdWhrQ==",
+      "path": "serilog.formatting.elasticsearch/9.0.0",
+      "hashPath": "serilog.formatting.elasticsearch.9.0.0.nupkg.sha512"
+    },
+    "Serilog.Settings.Configuration/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7GNudISZwqaT902hqEL2OFGTZeUFWfnrNLupJkOqeF41AR3GjcxX+Hwb30xb8gG2/CDXsCMVfF8o0+8KY0fJNg==",
+      "path": "serilog.settings.configuration/3.3.0",
+      "hashPath": "serilog.settings.configuration.3.3.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Console/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-apLOvSJQLlIbKlbx+Y2UDHSP05kJsV7mou+fvJoRGs/iR+jC22r8cuFVMjjfVxz/AD4B2UCltFhE1naRLXwKNw==",
+      "path": "serilog.sinks.console/4.0.1",
+      "hashPath": "serilog.sinks.console.4.0.1.nupkg.sha512"
+    },
+    "Serilog.Sinks.Debug/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y6g3OBJ4JzTyyw16fDqtFcQ41qQAydnEvEqmXjhwhgjsnG/FaJ8GUqF5ldsC/bVkK8KYmqrPhDO+tm4dF6xx4A==",
+      "path": "serilog.sinks.debug/2.0.0",
+      "hashPath": "serilog.sinks.debug.2.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Elasticsearch/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ule76W48feKREYBXrZEkqhiwDkwjMsQbvNMQyVVlH61zXg9FyStzjryVHbefLmHOurvRUmtHOUEdkG9gIS2M6Q==",
+      "path": "serilog.sinks.elasticsearch/9.0.0",
+      "hashPath": "serilog.sinks.elasticsearch.9.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.File/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
+      "path": "serilog.sinks.file/5.0.0",
+      "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.PeriodicBatching/3.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NDWR7m3PalVlGEq3rzoktrXikjFMLmpwF0HI4sowo8YDdU+gqPlTHlDQiOGxHfB0sTfjPA9JjA7ctKG9zqjGkw==",
+      "path": "serilog.sinks.periodicbatching/3.1.0",
+      "hashPath": "serilog.sinks.periodicbatching.3.1.0.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/6.2.3": {
       "type": "package",
       "serviceable": true,
@@ -3339,12 +3681,12 @@
       "path": "system.reflection.primitives/4.3.0",
       "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
     },
-    "System.Reflection.TypeExtensions/4.3.0": {
+    "System.Reflection.TypeExtensions/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==",
-      "path": "system.reflection.typeextensions/4.3.0",
-      "hashPath": "system.reflection.typeextensions.4.3.0.nupkg.sha512"
+      "sha512": "sha512-VybpaOQQhqE6siHppMktjfGBw1GCwvCqiufqmP8F1nj7fTUNtW35LOEt3UZTEsECfo+ELAl/9o9nJx3U91i7vA==",
+      "path": "system.reflection.typeextensions/4.7.0",
+      "hashPath": "system.reflection.typeextensions.4.7.0.nupkg.sha512"
     },
     "System.Resources.ResourceManager/4.3.0": {
       "type": "package",

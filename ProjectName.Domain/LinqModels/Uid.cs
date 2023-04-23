@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UMS.Domain.Models
+namespace UMS.Domain.LinqModels
 {
-    public class AddTeacherToCourse
+    public class Uid
     {
-        public int CourseId { get; set; }
+        public static string uid { get; set; }
+
     }
 }

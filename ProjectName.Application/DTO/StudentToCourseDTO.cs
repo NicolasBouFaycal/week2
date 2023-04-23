@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UMS.Domain.Models
+namespace UMS.Application.DTO
 {
-    public class Uid
+    public class StudentToCourseDTO
     {
-        public static string uid { get; set; }
-
+        public int  courseId {get;set;}
     }
 }

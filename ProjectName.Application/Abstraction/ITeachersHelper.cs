@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using UMS.Application.DTO;
+using UMS.Domain.Models;
 
 namespace UMS.Application.Abstraction
 {
@@ -17,6 +18,8 @@ namespace UMS.Application.Abstraction
         public TeacherPerCourse TeacherToCourse(int courseId);
         public TeacherPerCoursePerSessionTime TeacherPerCoursePerSessionTime(int TeacherPerCourseId, int SessionTimeId);
         public SessionTime SessionTime(DateTime StartTimeYYYY_MM_DD, DateTime EndTimeYYYY_MM_DD, int Duration);
+        public List<ClassEnrollment> AllClassEnrollments();
+        public Attendance Attendance(Attendance at);
 
     }
 }

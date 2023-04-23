@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using UMS.Domain;
+using UMS.Domain.Models;
 
 namespace UMS.Persistence;
 
@@ -23,6 +24,7 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<SessionTime> SessionTimes { get; set; }
+    public virtual DbSet<Attendance> Attendance { get; set; }
 
     public virtual DbSet<TeacherPerCourse> TeacherPerCourses { get; set; }
 
@@ -32,7 +34,7 @@ public partial class MyDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=test;Username=postgres;Password=password;");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=DDDArch;Username=postgres;Password=password;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

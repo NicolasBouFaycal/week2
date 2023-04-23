@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FirebaseAdmin" Version="2.3.0" />
     <PackageReference Include="FirebaseAuthentication.net" Version="3.7.1" />
-    <PackageReference Include="Intersoft.Crosslight" Version="6.0.5000.975" />
     <PackageReference Include="MailKit" Version="3.4.3" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
@@ -26,6 +26,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
     <PackageReference Include="RestSharp" Version="108.0.3" />
     <PackageReference Include="Scrutor" Version="4.2.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+    <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
   </ItemGroup>

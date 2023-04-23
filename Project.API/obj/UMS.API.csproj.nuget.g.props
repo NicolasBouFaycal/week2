@@ -23,6 +23,5 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\nicol\.nuget\packages\microsoft.entityframeworkcore.tools\7.0.3</PkgMicrosoft_EntityFrameworkCore_Tools>
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\nicol\.nuget\packages\microsoft.extensions.apidescription.server\3.0.0</PkgMicrosoft_Extensions_ApiDescription_Server>
-    <PkgIntersoft_Crosslight Condition=" '$(PkgIntersoft_Crosslight)' == '' ">C:\Users\nicol\.nuget\packages\intersoft.crosslight\6.0.5000.975</PkgIntersoft_Crosslight>
   </PropertyGroup>
 </Project>

@@ -19,8 +19,6 @@ namespace UMS.Application.Service
             _context = context;
         }
 
-        
-
         public async Task<string> Login(string email,string password)
         {
             FirebaseAuthProvider firebaseAuthProvider = new FirebaseAuthProvider(new FirebaseConfig(apikey));
@@ -28,30 +26,6 @@ namespace UMS.Application.Service
             try
             {
                 FirebaseAuthLink firebaseAuthLink = await firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email, password);
-                //CookieOptions options = new CookieOptions();
-                //options.Secure = true;
-                //var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(firebaseAuthLink.FirebaseToken);
-                /*var exp = jwtToken.ValidTo;
-                if (exp < DateTime.UtcNow)
-                {
-                    // Token has expired, return an error response
-                    return controllerBase.Unauthorized();
-                }*/
-                //var client = new HttpClient();
-                // var token = firebaseAuthLink.FirebaseToken;
-                // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                // controllerBase.Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
-                /*var roles = (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == firebaseAuthLink.User.LocalId select rol.Name).FirstOrDefault();
-                var userClaims = new List<Claim>()
-                {
-                    new Claim("userId",firebaseAuthLink.User.LocalId),
-                    new Claim(ClaimTypes.Email, firebaseAuthLink.User.Email),
-                    new Claim(ClaimTypes.Role,roles)
-                };
-                var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
-
-                var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });*/
-                //await controllerBase.HttpContext.SignInAsync(userPrincipal);
 
                 return "Access Token : "+firebaseAuthLink.FirebaseToken +"\n "+ "Refresh Token : "+firebaseAuthLink.RefreshToken;
             }
@@ -63,3 +37,28 @@ namespace UMS.Application.Service
         }
     }
 }
+
+//CookieOptions options = new CookieOptions();
+//options.Secure = true;
+//var jwtToken = new JwtSecurityTokenHandler().ReadJwtToken(firebaseAuthLink.FirebaseToken);
+/*var exp = jwtToken.ValidTo;
+if (exp < DateTime.UtcNow)
+{
+    // Token has expired, return an error response
+    return controllerBase.Unauthorized();
+}*/
+//var client = new HttpClient();
+// var token = firebaseAuthLink.FirebaseToken;
+// client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+// controllerBase.Response.Cookies.Append("UserId", firebaseAuthLink.User.LocalId);
+/*var roles = (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == firebaseAuthLink.User.LocalId select rol.Name).FirstOrDefault();
+var userClaims = new List<Claim>()
+{
+    new Claim("userId",firebaseAuthLink.User.LocalId),
+    new Claim(ClaimTypes.Email, firebaseAuthLink.User.Email),
+    new Claim(ClaimTypes.Role,roles)
+};
+var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
+
+var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });*/
+//await controllerBase.HttpContext.SignInAsync(userPrincipal);

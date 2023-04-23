@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMS.Domain;
+using UMS.Domain.LinqModels;
 
 namespace UMS.Application.Abstraction
 {
@@ -12,6 +13,7 @@ namespace UMS.Application.Abstraction
     {
         public string StudentEnrollToCourses(string userId,int courseId);
         public List<TeacherPerCourse> AllClassesForStudent(string userId);
+        public List<StudentAttendance> AllStudentAttendance();
 
     }
 }

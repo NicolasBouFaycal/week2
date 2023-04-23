@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using UMS.Common.Abstraction;
 using UMS.Domain;
+using UMS.Domain.LinqModels;
 using UMS.Domain.Models;
 using UMS.Persistence;
 

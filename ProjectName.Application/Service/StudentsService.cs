@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMS.Application.Abstraction;
+using UMS.Common.Abstraction;
 using UMS.Domain;
+using UMS.Domain.LinqModels;
 using UMS.Infrastructure.EmailServiceAbstraction;
 using UMS.Persistence;
 
@@ -16,41 +20,47 @@ namespace UMS.Application.Service
     {
         public readonly MyDbContext _context;
         private readonly IEmailService _emailService;
+        public readonly IShemaHelper _shemaService;
 
-        public StudentsService(MyDbContext context, IEmailService emailService)
+        public StudentsService(IShemaHelper shemaService, MyDbContext context, IEmailService emailService)
         {
             _context = context;
-            _emailService = emailService;   
+            _emailService = emailService;
+            _shemaService = shemaService;
         }
+        
 
         public List<TeacherPerCourse> AllClassesForStudent(string userId)
         {
             var userid = userId;
             var getStudentId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
+            var branch = _shemaService.getBranch(userid);
 
-            var courses2 = _context.TeacherPerCourses
-               .Where(course => !course.ClassEnrollments.Any(c=>c.StudentId==getStudentId))
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+
+            _shemaService.setShema(conn, branch);
+
+                var courses2 = _context.TeacherPerCourses
+               .Where(course => !course.ClassEnrollments.Any(c => c.StudentId == getStudentId))
                .ToList();
+                if (courses2.Count > 0)
+                {
+                    conn.Close();
+                    return courses2;
+                }
+                conn.Close();
 
-
-
-            /*var classes = _context.TeacherPerCourses
-            .Where(c => !_context.ClassEnrollments
-                .Any(ce => ce.ClassId == c.Id && ce.StudentId == getStudentId))
-            .ToList();*/
-
-            if (courses2.Count > 0)
-            {
-                return courses2;
-            }
             throw new Exception("You are Enrolled in All Courses");
         }
 
         public string StudentEnrollToCourses(string userId,int teacherPerCouseId)
         {
+            var branch = _shemaService.getBranch(userId);
+
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn,branch);
             var classes = (from c in _context.TeacherPerCourses select c).ToList();
-            var userid = userId;
-            var getUserEmail = (from u in _context.Users where u.KeycloakId == userid select u.Email).FirstOrDefault();
+            var getUserInfo = (from u in _context.Users where u.KeycloakId == userId select u).FirstOrDefault();
             if (classes.Count == 0)
             {
                 throw new Exception("Not Found");
@@ -59,16 +69,11 @@ namespace UMS.Application.Service
             {
                 if (classe.Id == teacherPerCouseId)
                 {
-                    //NpgsqlRange<DateOnly>? range = course.EnrolmentDateRange;
-                    //DateOnly start = range.Value.LowerBound;
-                    // DateOnly end = range.Value.UpperBound;
-                    // DateOnly currentDate = DateOnly.FromDateTime(DateTime.UtcNow.Date);
-                    //if (start <= currentDate && end >= currentDate || start >= currentDate && end >= currentDate)
-                    //{
+                    
                     ClassEnrollment newclass = new ClassEnrollment();
                     newclass.Id = 4;
                     newclass.ClassId = teacherPerCouseId;
-                    newclass.StudentId = (from s in _context.Users where s.KeycloakId == userid select s.Id).FirstOrDefault();
+                    newclass.StudentId = (from s in _context.Users where s.KeycloakId == userId select s.Id).FirstOrDefault();
                     if (newclass == null)
                         throw new InvalidOperationException("INsert Data");
                     _context.Add(newclass);
@@ -77,20 +82,64 @@ namespace UMS.Application.Service
                     var courseId = (from tpc in _context.TeacherPerCourses where tpc.Id == teacherPerCouseId select tpc.CourseId).FirstOrDefault();
 
                     var className = (from c in _context.Courses where c.Id == courseId select c.Name).FirstOrDefault();
-                    /* var className= (from tpc in _context.TeacherPerCourses
-                                    join c in _context.Courses on tpc.Id equals c.Id
-                                    where tpc.Id == teacherPerCouseId
-                                     select c.Name).FirstOrDefault();*/
+                   
+                    var teacherEmail = _context.Users
+                                    .Where(us => us.TeacherPerCourses.Any(c=>c.Id== teacherPerCouseId)).Select(u => u.Email)
+                                    .FirstOrDefault();
+                    _emailService.SendEmail(getUserInfo.Email, getUserInfo.Email, "Enrollment to class ", "You have been Suseesfully enrolled in the class :" + className);
+                    _emailService.SendEmail(teacherEmail, teacherEmail, "Enrollment to class ", "Student Name :"+ getUserInfo.Name+" Has been Enrolled in Class :" + className);
 
-                    //var className = (from c in _context.Courses where c.Id == courseId select c.Name).FirstOrDefault();
-                    _emailService.SendEmail(getUserEmail, getUserEmail, "Enrollment to class ", "You have been Suseesfully enrolled in the class :" + className);
-
+                    conn.Close();
                     return "Inserted succesfully check your email";
-                    //};
+                    
                 }
             }
+            
             throw new Exception("connection add Class because times up");
         }
-       
+
+        public List<StudentAttendance> AllStudentAttendance()
+        {
+            var branch = _shemaService.getBranch(Uid.uid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
+            // var attendence = (from a in _context.Attendance select a).ToList();
+            var attendance = (from a in _context.Attendance
+                              join ce in _context.ClassEnrollments on a.StudentCourseId equals ce.Id
+                              join stu in _context.Users on ce.StudentId equals stu.Id
+                              join tc in _context.TeacherPerCourses on ce.ClassId equals tc.Id
+                              join u in _context.Users on tc.TeacherId equals u.Id
+                              join c in _context.Courses on tc.CourseId equals c.Id
+                              where stu.KeycloakId == Uid.uid
+                              select new StudentAttendance
+                              {
+                                  courseName = c.Name,
+                                  Date = a.Date,
+                                  attendance = a.AttendanceStatus,
+                                  teacherName = u.Name
+
+                              }).ToList();
+
+            conn.Close();
+            return attendance;
+        }
     }
 }
+/* var className= (from tpc in _context.TeacherPerCourses
+                                    join c in _context.Courses on tpc.Id equals c.Id
+                                    where tpc.Id == teacherPerCouseId
+                                        select c.Name).FirstOrDefault();*/
+
+//var className = (from c in _context.Courses where c.Id == courseId select c.Name).FirstOrDefault();
+
+//NpgsqlRange<DateOnly>? range = course.EnrolmentDateRange;
+//DateOnly start = range.Value.LowerBound;
+// DateOnly end = range.Value.UpperBound;
+// DateOnly currentDate = DateOnly.FromDateTime(DateTime.UtcNow.Date);
+//if (start <= currentDate && end >= currentDate || start >= currentDate && end >= currentDate)
+//{
+
+/*var classes = _context.TeacherPerCourses
+            .Where(c => !_context.ClassEnrollments
+                .Any(ce => ce.ClassId == c.Id && ce.StudentId == getStudentId))
+            .ToList();*/

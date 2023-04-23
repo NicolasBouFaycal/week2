@@ -1,16 +1,11 @@
-﻿using Firebase.Auth;
-using FirebaseAdmin;
+﻿using FirebaseAdmin;
+using FirebaseAdmin.Auth;
 using Google.Apis.Auth.OAuth2;
-using Microsoft.AspNetCore.Http;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Security.Claims;
 using System.Text;
-using UMS.Domain.Models;
-using UMS.Persistence;
+using UMS.Common.Abstraction;
+using UMS.Domain.LinqModels;
 
 namespace UMS.API.Middleware
 {
@@ -19,11 +14,14 @@ namespace UMS.API.Middleware
         private readonly RequestDelegate _next;
         //private readonly MyDbContext _context;
         private static string apikey = "AIzaSyC8-YnOCMAZqK4DAuTIltT-nkkbWziTTuI";
+        private readonly IConfiguration _configuration;
 
-        public TokenExpirationMiddleware(RequestDelegate next)
+
+        public TokenExpirationMiddleware(RequestDelegate next, IConfiguration configuration)
         {
             _next = next;
-           // _context = context;
+            _configuration = configuration;
+            // _context = context;
         }
 
         public async Task Invoke(HttpContext context)
@@ -36,6 +34,10 @@ namespace UMS.API.Middleware
             }
             var apiKey = "AIzaSyC8-YnOCMAZqK4DAuTIltT-nkkbWziTTuI";
             var token = context.Request.Headers["Authorization"].FirstOrDefault();
+            if (token == null)
+            {
+                throw new Exception("Null Token ,Enter Token in Authorization Header");
+            }
             string[] accesstoken = token.ToString().Split(' ');
             var userid = context.Request.Cookies["UserId"];
             if (!string.IsNullOrEmpty(token))
@@ -84,10 +86,22 @@ namespace UMS.API.Middleware
                         context.Response.Cookies.Append("RefreshToken", newRefreshToken);
                     }
                 }
+/*
+                //to get the firebase user id directly from header request
+                FirebaseApp.Create(new AppOptions()
+                {
+                    Credential = GoogleCredential.FromFile("C:/Users/nicol/source/repos/testDDD/UMS.API/firebase-config.json")
+                });
+                FirebaseToken decodedToken = await FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(accesstoken[1], false);
+                string userId = decodedToken.Uid;*/
 
                 var uid = responseDataFromFirebase.users[0].localId;
                 context.Items["userId"]=uid;
                 Uid.uid=uid;
+
+               
+
+                
 
                 var id= ((object)uid).ToString(); ;
                 //var roles = (from u in _context.Users join rol in _context.Roles on u.RoleId equals rol.Id where u.KeycloakId == id select rol.Name).FirstOrDefault();

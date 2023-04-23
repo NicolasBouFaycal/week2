@@ -1,19 +1,23 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using UMS.Application.Abstraction;
+﻿using UMS.Application.Abstraction;
 using UMS.Domain;
 using UMS.Persistence;
-using UMS.Common;
 using UMS.Domain.Models;
+using UMS.Common.Abstraction;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
+using UMS.Domain.LinqModels;
 
 namespace UMS.Application.Service
 {
     public class TeachersService:ITeachersHelper
     {
         public readonly MyDbContext _context;
-        public TeachersService(MyDbContext context)
+        public readonly IShemaHelper _shemaService;
+
+        public TeachersService(MyDbContext context, IShemaHelper shemaService)
         {
             _context = context;
+            _shemaService = shemaService;
         }
 
         public TeacherPerCoursePerSessionTime TeacherPerCoursePerSessionTime( int teacherPerCourseId, int sessionTimeId)
@@ -21,6 +25,9 @@ namespace UMS.Application.Service
             try
             {
                 var userid = Uid.uid;
+                var branch = _shemaService.getBranch(userid);
+                var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+                _shemaService.setShema(conn, branch);
                 TeacherPerCoursePerSessionTime SessionCourse = new TeacherPerCoursePerSessionTime();
                 SessionCourse.Id = 2;
                 SessionCourse.TeacherPerCourseId = teacherPerCourseId;
@@ -30,6 +37,7 @@ namespace UMS.Application.Service
                     throw new InvalidOperationException("Insert Data");
                 _context.Add(SessionCourse);
                 _context.SaveChanges();
+                conn.Close();
                 return SessionCourse;
             }
             catch (Exception ex)
@@ -44,6 +52,9 @@ namespace UMS.Application.Service
             try
             {
                 var userid = Uid.uid;
+                var branch = _shemaService.getBranch(userid);
+                var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+                _shemaService.setShema(conn, branch);
                 TeacherPerCourse course = new TeacherPerCourse();
                 course.Id = 3;
                 course.CourseId = courseId;
@@ -53,6 +64,7 @@ namespace UMS.Application.Service
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(course);
                 _context.SaveChanges();
+                conn.Close ();
                 return course;
             }
             catch (Exception ex)
@@ -64,18 +76,24 @@ namespace UMS.Application.Service
 
         public List<Course> AllCourses()
         {
-            var courses = _context.Courses
+            /*var courses = _context.Courses
             .Where(c => !_context.TeacherPerCourses
                 .Any(tpc => tpc.CourseId == c.Id))
-            .ToList();
+            .ToList();*/
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            var userid = Uid.uid;
+            var branch = _shemaService.getBranch(userid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
             var courses2 = _context.Courses
                 .Where(course => !course.TeacherPerCourses.Any())
                 .ToList();
 
             if (courses2.Count > 0)
             {
+                conn.Close ();
                 return courses2;
             }
             throw new Exception("NUll");
@@ -84,18 +102,19 @@ namespace UMS.Application.Service
         public List<SessionTime>AllSessionTime()
         {
             var userid = Uid.uid;
+            var branch = _shemaService.getBranch(userid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
             var getTeacherId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
 
             var Scourses = _context.SessionTimes
                 .Where(st => !st.TeacherPerCoursePerSessionTimes.Any())
                 .ToList();
 
-           /* var Scourses = _context.SessionTimes
-            .Where(st => !_context.TeacherPerCoursePerSessionTimes
-                .Any(tpcpst => tpcpst.SessionTimeId == st.Id))
-            .ToList();*/
+         
             if (Scourses.Count > 0)
             {
+                conn.Close();
                 return Scourses;
             }
             throw new Exception("NUll");
@@ -105,19 +124,18 @@ namespace UMS.Application.Service
         public List<TeacherPerCourse> AllTeacherPerCourse()
         {
             var userid = Uid.uid;
+            var branch = _shemaService.getBranch(userid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
             var getTeacherId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
 
             var thcourses = _context.TeacherPerCourses
                 .Where(tp =>tp.TeacherId == getTeacherId && !tp.TeacherPerCoursePerSessionTimes.Any())
                 .ToList();
 
-            /*var thcourses = _context.TeacherPerCourses
-            .Where(tpc => !_context.TeacherPerCoursePerSessionTimes
-                .Any(tpcpst => tpcpst.TeacherPerCourseId == tpc.Id && tpc.TeacherId != getTeacherId))
-            .ToList();*/
-
             if (thcourses.Count > 0)
             {
+                conn.Close();
                 return thcourses;
             }
             throw new Exception("NUll");
@@ -127,6 +145,10 @@ namespace UMS.Application.Service
         {
             try
             {
+                var userid = Uid.uid;
+                var branch = _shemaService.getBranch(userid);
+                var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+                _shemaService.setShema(conn, branch);
                 SessionTime tm = new SessionTime();
                 tm.StartTime = StartTimeYYYY_MM_DD;
                 tm.EndTime = EndTimeYYYY_MM_DD;
@@ -136,6 +158,7 @@ namespace UMS.Application.Service
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(tm);
                 _context.SaveChanges();
+                conn.Close();
                 return tm;
             }
             catch (Exception ex)
@@ -144,5 +167,51 @@ namespace UMS.Application.Service
 
             }
         }
+
+        public List<ClassEnrollment> AllClassEnrollments()
+        {
+            var branch = _shemaService.getBranch(Uid.uid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
+            var getAllStudentsInTeacherClasses = (from c in _context.ClassEnrollments
+                                                  join tc in _context.TeacherPerCourses
+                                                  on c.ClassId equals tc.Id
+                                                  join u in _context.Users
+                                                  on tc.TeacherId equals u.Id
+                                                  where u.KeycloakId == Uid.uid
+                                                  select c).ToList();
+            conn.Close();
+
+            return getAllStudentsInTeacherClasses;
+
+        }
+
+        public Attendance Attendance(Attendance at)
+        {
+            var branch = _shemaService.getBranch(Uid.uid);
+            var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
+            _shemaService.setShema(conn, branch);
+            Attendance attendance = new Attendance();
+            attendance.StudentCourseId = at.StudentCourseId;
+            attendance.AttendanceStatus = at.AttendanceStatus;
+            attendance.Date = at.Date;
+            _context.Add(attendance);
+            _context.SaveChanges();
+            conn.Close();
+            return attendance;
+
+        }
     }
 }
+
+/* var Scourses = _context.SessionTimes
+ .Where(st => !_context.TeacherPerCoursePerSessionTimes
+     .Any(tpcpst => tpcpst.SessionTimeId == st.Id))
+ .ToList();*/
+
+
+
+/*var thcourses = _context.TeacherPerCourses
+.Where(tpc => !_context.TeacherPerCoursePerSessionTimes
+    .Any(tpcpst => tpcpst.TeacherPerCourseId == tpc.Id && tpc.TeacherId != getTeacherId))
+.ToList();*/

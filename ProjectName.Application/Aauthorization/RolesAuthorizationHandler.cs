@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
-using UMS.Domain.Models;
+using UMS.Domain.LinqModels;
 using UMS.Persistence;
 
 namespace UMS.Application.Aauthorization
