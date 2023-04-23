@@ -131,6 +131,10 @@
               "target": "Package",
               "version": "[8.4.0, )"
             },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -288,6 +292,10 @@
               "target": "Package",
               "version": "[8.4.0, )"
             },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -434,6 +442,10 @@
             "Serilog.Exceptions": {
               "target": "Package",
               "version": "[8.4.0, )"
+            },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
@@ -582,6 +594,10 @@
               "target": "Package",
               "version": "[8.4.0, )"
             },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -728,6 +744,10 @@
             "Serilog.Exceptions": {
               "target": "Package",
               "version": "[8.4.0, )"
+            },
+            "Serilog.Sinks.Debug": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             },
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",

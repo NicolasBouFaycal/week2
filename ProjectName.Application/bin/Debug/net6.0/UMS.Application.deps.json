@@ -26,6 +26,7 @@
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.Environment": "2.2.0",
           "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Common": "1.0.0",
@@ -2202,6 +2203,7 @@
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.Environment": "2.2.0",
           "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0",
@@ -2232,6 +2234,7 @@
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.Environment": "2.2.0",
           "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1"
         },
@@ -2258,6 +2261,7 @@
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.Environment": "2.2.0",
           "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
@@ -2285,6 +2289,7 @@
           "Serilog.AspNetCore": "6.1.0",
           "Serilog.Enrichers.Environment": "2.2.0",
           "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"

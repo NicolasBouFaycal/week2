@@ -144,7 +144,7 @@ builder.Services.AddTransient<ITeachersHelper, TeachersService>();
 builder.Services.AddTransient<IAdminsHelper, AdminsService>();
 builder.Services.AddTransient<IAuthenticationHelper, AuthenticationService>();
 
-//ConfigureLogging();
+ConfigureLogging();
 builder.Host.UseSerilog();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllersWithViews();
@@ -169,7 +169,7 @@ app.UseAuthorization();
 app.MapControllers();
 app.Run();
 
-/*void ConfigureLogging()
+void ConfigureLogging()
 {
     var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
     var configuration = new ConfigurationBuilder()
@@ -197,7 +197,7 @@ ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, 
         AutoRegisterTemplate = true,
         IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}"
     };
-}*/
+}
 /*builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.Enrich.FromLogContext()
