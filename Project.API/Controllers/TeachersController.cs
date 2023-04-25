@@ -5,7 +5,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using Nancy.Json;
+using Newtonsoft.Json;
 using Npgsql;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
 using UMS.Application.Abstraction;
 using UMS.Application.Commands;
 using UMS.Application.DTO;
@@ -30,9 +35,11 @@ namespace UMS.API.Controllers
         private readonly IUploadImgHelper _uploadImgHelper ;
         private readonly IMapper _mapper;
         public readonly IShemaHelper _shemaService;
+        public readonly IConnection _connect;
 
 
-        public TeachersController(IShemaHelper shemaService,IMapper mapper,IUploadImgHelper uploadImgHelper, ITeachersHelper teachersHelper, IMediator mediator, IWebHostEnvironment environment, MyDbContext context)
+
+        public TeachersController(IConnection connect,IShemaHelper shemaService,IMapper mapper,IUploadImgHelper uploadImgHelper, ITeachersHelper teachersHelper, IMediator mediator, IWebHostEnvironment environment, MyDbContext context)
         {
             _mediator = mediator;
             _environment = environment;
@@ -40,11 +47,13 @@ namespace UMS.API.Controllers
             _uploadImgHelper = uploadImgHelper;
             _mapper = mapper;
             _shemaService = shemaService;
+            _connect = connect; 
         }
 
         [HttpGet("AllClassEnrollment")]
         public async Task<ActionResult<List<ClassEnrollmentDTO>>> AllClassEnrollment()
         {
+
             var result = await _mediator.Send(new AllClassEnrollments());
 
             return _mapper.Map<List< ClassEnrollmentDTO >>(result);

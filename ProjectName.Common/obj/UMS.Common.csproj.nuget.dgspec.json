@@ -116,6 +116,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "Scrutor": {
               "target": "Package",
               "version": "[4.2.2, )"
@@ -266,6 +270,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "Scrutor": {
               "target": "Package",
@@ -418,6 +426,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
             "Scrutor": {
               "target": "Package",
               "version": "[4.2.2, )"
@@ -568,6 +580,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             },
             "Scrutor": {
               "target": "Package",

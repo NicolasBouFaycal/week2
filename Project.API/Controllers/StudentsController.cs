@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Npgsql;
+using System.Text;
 using UMS.Application;
 using UMS.Application.Commands;
 using UMS.Application.DTO;
@@ -53,35 +55,77 @@ namespace UMS.API.Controllers
         public async Task<ActionResult<List<TeacherPerCourseDTO>>> AllClassesForStudent()
         {
             _logger.LogInformation("Get All Courses execute");
-            var userid = Uid.uid;
-            var query = new AllClassesForStudent(userid);
-            var result = await _mediator.Send(query);
-            return _mapper.Map< List < TeacherPerCourseDTO >>(result);
+            HttpClient client = new HttpClient();
+            string url =String.Format("https://localhost:7273/Student-Service/AllClassesForStudent?userId={0}", Uid.uid);
+            HttpResponseMessage response =  client.GetAsync(url).Result;  
+            if(response.IsSuccessStatusCode)
+            {
+                
+                return await response.Content.ReadFromJsonAsync<List<TeacherPerCourseDTO>>();
+            }
+
+            throw new Exception("Internal Service Error");
         }
         [HttpGet("AllStudentAttendance")]
         [EnableQuery]
         public async Task<ActionResult<List<StudentAttendance>>> AllStudentAttendance()
         {
-            var query = new AllStudentAttendance();
-            var result = await _mediator.Send(query);
+            HttpClient client = new HttpClient();
+            string url = String.Format("https://localhost:7273/Student-Service/AllStudentAttendance?userId={0}", Uid.uid);
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
+            {
 
-            return result;
+                return await response.Content.ReadFromJsonAsync<List<StudentAttendance>>();
+            }
+
+            throw new Exception("Internal Service Error");
         }
 
         [HttpPost("StudentEnrollToCourses")]
-        public async Task<ActionResult<String>> StudentEnrollToCourses([FromBody] StudentToCourseDTO Id)
+        public async Task<ActionResult<string>> StudentEnrollToCourses([FromBody] StudentToCourseDTO Id)
         {
             //var userid = Request.Headers["Authentication"];
+            string json = JsonConvert.SerializeObject(Id);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            HttpClient client = new HttpClient();
+            string url = String.Format("https://localhost:7273/Student-Service/StudentEnrollToCourses?userId={0}", Uid.uid);
+            HttpResponseMessage response = await client.PostAsync(url, content);
 
-            var userid=Uid.uid;
-            var result = await _mediator.Send(new StudentEnrollToCoursesCommand(userid, Id.courseId));
-             return result;
-           
+
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                return new JsonResult(response.Content.ReadAsStringAsync().Result);
+            }
+
+            throw new Exception("You can not be enrolled in this class because you are enrolled in");
         }
+
         [HttpPost("UploadImage")]
-        public ActionResult<string> UploadImage([FromForm] UploadImg obj)
+        public async Task<ActionResult<string>> UploadImageAsync([FromForm] UploadImg obj)
         {
-            return _uploadImgHelper.UploadProfileAsync(obj);
+
+            HttpClient client = new HttpClient();
+            string url = String.Format("https://localhost:7273/Student-Service/UploadImage?userId={0}", Uid.uid);
+
+            var form = new MultipartFormDataContent();
+
+            form.Add(new StreamContent(obj.file.OpenReadStream()), "file", obj.file.FileName);
+
+            HttpResponseMessage response = await client.PostAsync(url, form);
+
+
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                return new JsonResult(response.Content.ReadAsStringAsync().Result);
+            }
+
+            throw new Exception("You can not be enrolled in this class because you are enrolled in");
+
         }
     }
 }

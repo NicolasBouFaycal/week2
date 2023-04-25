@@ -24,6 +24,7 @@ using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using Serilog.Exceptions;
 using UMS.Application.Handler;
+using RabbitMQ.Client;
 
 ;
 
@@ -134,6 +135,9 @@ var handlerTypes = new Type[]
 builder.Services.AddMyServices(handlerTypes);
 
 
+var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+using var connection = factory.CreateConnection();
+builder.Services.AddSingleton<IConnection>(connection);
 
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
 builder.Services.AddScoped<IEmailService, EmailService>();
@@ -143,6 +147,7 @@ builder.Services.AddTransient<IStudentsHelper, StudentsService>();
 builder.Services.AddTransient<ITeachersHelper, TeachersService>();
 builder.Services.AddTransient<IAdminsHelper, AdminsService>();
 builder.Services.AddTransient<IAuthenticationHelper, AuthenticationService>();
+
 
 ConfigureLogging();
 builder.Host.UseSerilog();
@@ -198,6 +203,7 @@ ElasticsearchSinkOptions ConfigureElasticSink(IConfigurationRoot configuration, 
         IndexFormat = $"{Assembly.GetExecutingAssembly().GetName().Name.ToLower().Replace(".", "-")}-{environment?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}"
     };
 }
+/*builder.Host.UseSerilog((context, configuration) =>
 /*builder.Host.UseSerilog((context, configuration) =>
 {
     configuration.Enrich.FromLogContext()

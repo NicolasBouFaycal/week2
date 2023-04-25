@@ -6,6 +6,10 @@ using UMS.Common.Abstraction;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using UMS.Domain.LinqModels;
+using RabbitMQ.Client.Events;
+using RabbitMQ.Client;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace UMS.Application.Service
 {
@@ -13,11 +17,12 @@ namespace UMS.Application.Service
     {
         public readonly MyDbContext _context;
         public readonly IShemaHelper _shemaService;
-
-        public TeachersService(MyDbContext context, IShemaHelper shemaService)
+        public readonly IConnection _connect;
+        public TeachersService(IConnection connection, MyDbContext context, IShemaHelper shemaService)
         {
             _context = context;
             _shemaService = shemaService;
+            _connect = connection;
         }
 
         public TeacherPerCoursePerSessionTime TeacherPerCoursePerSessionTime( int teacherPerCourseId, int sessionTimeId)
@@ -173,6 +178,58 @@ namespace UMS.Application.Service
             var branch = _shemaService.getBranch(Uid.uid);
             var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
             _shemaService.setShema(conn, branch);
+            /*
+            var factory = new ConnectionFactory { Uri = new Uri("amqp://guest:guest@localhost:5672") };
+            using var connection = factory.CreateConnection();*/
+            using var channel = _connect.CreateModel();
+            var message = "";
+            //demo-queue
+            /* channel.QueueDeclare("StudentEnrollToCourses",
+                 durable: true,
+                 exclusive: false,
+                 autoDelete: false,
+                 arguments: null);
+
+             var consumer = new EventingBasicConsumer(channel);
+             consumer.Received += (sender, e) =>
+             {
+                 var body = e.Body.ToArray();
+                 var message = Encoding.UTF8.GetString(body);
+                 Console.WriteLine(message);
+             };
+             channel.BasicConsume("StudentEnrollToCourses", true,consumer);*/
+
+
+            channel.ExchangeDeclare("StudentEnrollToCourses-exchange", ExchangeType.Direct);
+            channel.QueueDeclare("StudentEnrollToCourses",
+                durable: true,
+                exclusive: false,
+                autoDelete: false,
+                arguments: null);
+
+            //queue name,exchange Name,Routing Key Name 
+            channel.QueueBind("StudentEnrollToCourses", "StudentEnrollToCourses-exchange", "StudentEnrollToCourses.init");
+
+            var consumer = new EventingBasicConsumer(channel);
+            consumer.Received += (sender, e) =>
+            {
+                var body = e.Body.ToArray();
+                message = Encoding.UTF8.GetString(body);
+                Console.WriteLine(message);
+            };
+            channel.BasicConsume("StudentEnrollToCourses", true, consumer);
+            if (message != "")
+            {
+                var cl = JsonConvert.DeserializeObject<ClassEnrollment>(message);
+                ClassEnrollment classenrollment = new ClassEnrollment();
+                classenrollment.Id = 4;
+                classenrollment.StudentId = cl.StudentId;
+                classenrollment.ClassId = cl.ClassId;
+                _context.Add(classenrollment);
+                _context.SaveChanges();
+
+            }
+          
             var getAllStudentsInTeacherClasses = (from c in _context.ClassEnrollments
                                                   join tc in _context.TeacherPerCourses
                                                   on c.ClassId equals tc.Id
