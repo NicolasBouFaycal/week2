@@ -1897,6 +1897,20 @@
           "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.dll": {}
         }
       },
+      "Serilog.Sinks.RabbitMQ/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "RabbitMQ.Client": "6.0.0",
+          "Serilog": "2.8.0",
+          "Serilog.Sinks.PeriodicBatching": "2.1.1"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/Serilog.Sinks.RabbitMQ.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Serilog.Sinks.RabbitMQ.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3178,6 +3192,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1"
         },
         "compile": {
@@ -3211,6 +3226,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -3245,6 +3261,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -6028,6 +6045,20 @@
         "lib/netstandard2.1/Serilog.Sinks.PeriodicBatching.xml",
         "serilog.sinks.periodicbatching.3.1.0.nupkg.sha512",
         "serilog.sinks.periodicbatching.nuspec"
+      ]
+    },
+    "Serilog.Sinks.RabbitMQ/6.0.0": {
+      "sha512": "M8SGYpfvoQ09gSxcoFHuUyeny4bMtMHopWs/y0umbx2EJlf3gEQiAQREsmBdVSXZnSYdgQh131JM6TB2eZlF+Q==",
+      "type": "package",
+      "path": "serilog.sinks.rabbitmq/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/Serilog.Sinks.RabbitMQ.dll",
+        "lib/netcoreapp2.0/Serilog.Sinks.RabbitMQ.dll",
+        "lib/netstandard2.0/Serilog.Sinks.RabbitMQ.dll",
+        "serilog.sinks.rabbitmq.6.0.0.nupkg.sha512",
+        "serilog.sinks.rabbitmq.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -9986,6 +10017,7 @@
       "Serilog.Exceptions >= 8.4.0",
       "Serilog.Sinks.Debug >= 2.0.0",
       "Serilog.Sinks.Elasticsearch >= 9.0.0",
+      "Serilog.Sinks.RabbitMQ >= 6.0.0",
       "System.Runtime >= 4.3.1",
       "UMS.Domain >= 1.0.0",
       "UMS.Infrastructure >= 1.0.0",
@@ -10135,6 +10167,10 @@
           "Serilog.Sinks.Elasticsearch": {
             "target": "Package",
             "version": "[9.0.0, )"
+          },
+          "Serilog.Sinks.RabbitMQ": {
+            "target": "Package",
+            "version": "[6.0.0, )"
           },
           "System.Runtime": {
             "target": "Package",

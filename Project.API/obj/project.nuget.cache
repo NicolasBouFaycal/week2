@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SwDCYYtXbAknTaEN2t4w+yVFn1GPWGf4l3G1s9U6ffji3FKbhu0Xm045ZFfiVXc3vbyz0HisPaZokW1WIu9iWg==",
+  "dgSpecHash": "QOGQzASMCrZEsjXGSesZmRjWj/NhPjJV/xGX0UNzXN5goyKSKTB41MUjp1Yv+HWbMD1gsLFgZ3sCxrbgJjKmzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\Project.API\\UMS.API.csproj",
   "expectedPackageFiles": [
@@ -144,6 +144,7 @@
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.elasticsearch\\9.0.0\\serilog.sinks.elasticsearch.9.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.periodicbatching\\3.1.0\\serilog.sinks.periodicbatching.3.1.0.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.rabbitmq\\6.0.0\\serilog.sinks.rabbitmq.6.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

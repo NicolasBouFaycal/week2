@@ -112,7 +112,7 @@ public partial class MyDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("class_teacher_id_fk");
         });
-
+       
         modelBuilder.Entity<TeacherPerCoursePerSessionTime>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("classsessions_pk");

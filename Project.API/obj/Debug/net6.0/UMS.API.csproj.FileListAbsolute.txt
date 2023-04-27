@@ -162,3 +162,4 @@ C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\RabbitMQ.Client.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\System.Threading.Channels.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Nancy.dll
+C:\Users\nicol\source\repos\DDD\Project.API\bin\Debug\net6.0\Serilog.Sinks.RabbitMQ.dll

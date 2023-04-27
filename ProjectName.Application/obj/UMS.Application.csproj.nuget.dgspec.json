@@ -143,6 +143,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Serilog.Sinks.RabbitMQ": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.1, )"
@@ -308,6 +312,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Serilog.Sinks.RabbitMQ": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.1, )"
@@ -462,6 +470,10 @@
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.RabbitMQ": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "System.Runtime": {
               "target": "Package",
@@ -618,6 +630,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Serilog.Sinks.RabbitMQ": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "System.Runtime": {
               "target": "Package",
               "version": "[4.3.1, )"
@@ -772,6 +788,10 @@
             "Serilog.Sinks.Elasticsearch": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Serilog.Sinks.RabbitMQ": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "System.Runtime": {
               "target": "Package",

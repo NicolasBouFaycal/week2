@@ -24,13 +24,13 @@ namespace UMS.API.Controllers
     [Authorize(Roles = "Student")]
     public class StudentsController : ControllerBase
     {
-       
+
         private readonly IEmailService _emailService;
         private readonly IMediator _mediator;
         private readonly IUploadImgHelper _uploadImgHelper;
         private readonly IConfiguration _configuration;
         private readonly ILogger<StudentsController> _logger;
-        private readonly IMapper _mapper ;
+        private readonly IMapper _mapper;
         private readonly MyDbContext _context;
         public readonly IShemaHelper _shemaService;
 
@@ -38,11 +38,11 @@ namespace UMS.API.Controllers
 
 
 
-        public StudentsController(IShemaHelper shemaService,MyDbContext context,IMapper mapper,ILogger<StudentsController> logger, IConfiguration configuration,IUploadImgHelper uploadImgHelper, IEmailService emailService,  IMediator mediator)
+        public StudentsController(IShemaHelper shemaService, MyDbContext context, IMapper mapper, ILogger<StudentsController> logger, IConfiguration configuration, IUploadImgHelper uploadImgHelper, IEmailService emailService, IMediator mediator)
         {
-            
+
             _emailService = emailService;
-            _mediator = mediator;   
+            _mediator = mediator;
             _uploadImgHelper = uploadImgHelper;
             _configuration = configuration;
             _logger = logger;
@@ -56,11 +56,11 @@ namespace UMS.API.Controllers
         {
             _logger.LogInformation("Get All Courses execute");
             HttpClient client = new HttpClient();
-            string url =String.Format("https://localhost:7273/Student-Service/AllClassesForStudent?userId={0}", Uid.uid);
-            HttpResponseMessage response =  client.GetAsync(url).Result;  
-            if(response.IsSuccessStatusCode)
+            string url = String.Format("https://localhost:7273/Student-Service/AllClassesForStudent?userId={0}", Uid.uid);
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            if (response.IsSuccessStatusCode)
             {
-                
+
                 return await response.Content.ReadFromJsonAsync<List<TeacherPerCourseDTO>>();
             }
 
@@ -129,4 +129,3 @@ namespace UMS.API.Controllers
         }
     }
 }
-

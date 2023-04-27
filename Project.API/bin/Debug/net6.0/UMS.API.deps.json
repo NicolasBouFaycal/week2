@@ -31,6 +31,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Runtime": "4.3.1",
           "UMS.Application": "1.0.0",
@@ -1526,6 +1527,19 @@
           }
         }
       },
+      "Serilog.Sinks.RabbitMQ/6.0.0": {
+        "dependencies": {
+          "RabbitMQ.Client": "6.5.0",
+          "Serilog": "2.12.0",
+          "Serilog.Sinks.PeriodicBatching": "3.1.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Serilog.Sinks.RabbitMQ.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.2.3": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
@@ -2460,6 +2474,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Common": "1.0.0",
           "UMS.Domain": "1.0.0",
@@ -2493,6 +2508,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0",
           "UMS.Infrastructure": "1.0.0",
@@ -2525,6 +2541,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1"
         },
         "runtime": {
@@ -2553,6 +2570,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -2582,6 +2600,7 @@
           "Serilog.Exceptions": "8.4.0",
           "Serilog.Sinks.Debug": "2.0.0",
           "Serilog.Sinks.Elasticsearch": "9.0.0",
+          "Serilog.Sinks.RabbitMQ": "6.0.0",
           "System.Runtime": "4.3.1",
           "UMS.Domain": "1.0.0"
         },
@@ -3576,6 +3595,13 @@
       "sha512": "sha512-NDWR7m3PalVlGEq3rzoktrXikjFMLmpwF0HI4sowo8YDdU+gqPlTHlDQiOGxHfB0sTfjPA9JjA7ctKG9zqjGkw==",
       "path": "serilog.sinks.periodicbatching/3.1.0",
       "hashPath": "serilog.sinks.periodicbatching.3.1.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.RabbitMQ/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-M8SGYpfvoQ09gSxcoFHuUyeny4bMtMHopWs/y0umbx2EJlf3gEQiAQREsmBdVSXZnSYdgQh131JM6TB2eZlF+Q==",
+      "path": "serilog.sinks.rabbitmq/6.0.0",
+      "hashPath": "serilog.sinks.rabbitmq.6.0.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.2.3": {
       "type": "package",

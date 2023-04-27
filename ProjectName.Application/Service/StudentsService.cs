@@ -16,7 +16,7 @@ using UMS.Persistence;
 
 namespace UMS.Application.Service
 {
-    public class StudentsService: IStudentsHelper
+    public class StudentsService : IStudentsHelper
     {
         public readonly MyDbContext _context;
         private readonly IEmailService _emailService;
@@ -28,39 +28,44 @@ namespace UMS.Application.Service
             _emailService = emailService;
             _shemaService = shemaService;
         }
-        
+
 
         public List<TeacherPerCourse> AllClassesForStudent(string userId)
         {
             var userid = userId;
-            var getStudentId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
+            var getStudentId = _context.Users
+                                .Where(t => t.KeycloakId == userid)
+                                .Select(t => t.Id)
+                                .FirstOrDefault();
             var branch = _shemaService.getBranch(userid);
 
             var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
 
             _shemaService.setShema(conn, branch);
 
-                var courses2 = _context.TeacherPerCourses
-               .Where(course => !course.ClassEnrollments.Any(c => c.StudentId == getStudentId))
-               .ToList();
-                if (courses2.Count > 0)
-                {
-                    conn.Close();
-                    return courses2;
-                }
+            var courses2 = _context.TeacherPerCourses
+           .Where(course => !course.ClassEnrollments.Any(c => c.StudentId == getStudentId))
+           .ToList();
+            if (courses2.Count > 0)
+            {
                 conn.Close();
+                return courses2;
+            }
+            conn.Close();
 
             throw new Exception("You are Enrolled in All Courses");
         }
 
-        public string StudentEnrollToCourses(string userId,int teacherPerCouseId)
+        public string StudentEnrollToCourses(string userId, int teacherPerCouseId)
         {
             var branch = _shemaService.getBranch(userId);
 
             var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
-            _shemaService.setShema(conn,branch);
-            var classes = (from c in _context.TeacherPerCourses select c).ToList();
-            var getUserInfo = (from u in _context.Users where u.KeycloakId == userId select u).FirstOrDefault();
+            _shemaService.setShema(conn, branch);
+            var classes = _context.TeacherPerCourses.ToList();
+            var getUserInfo = _context.Users
+                                .Where(u => u.KeycloakId == userId)
+                                .FirstOrDefault();
             if (classes.Count == 0)
             {
                 throw new Exception("Not Found");
@@ -69,32 +74,41 @@ namespace UMS.Application.Service
             {
                 if (classe.Id == teacherPerCouseId)
                 {
-                    
+
                     ClassEnrollment newclass = new ClassEnrollment();
                     newclass.Id = 4;
                     newclass.ClassId = teacherPerCouseId;
-                    newclass.StudentId = (from s in _context.Users where s.KeycloakId == userId select s.Id).FirstOrDefault();
+                    newclass.StudentId = _context.Users
+                                        .Where(s => s.KeycloakId == userId)
+                                        .Select(s => s.Id)
+                                        .FirstOrDefault();
                     if (newclass == null)
                         throw new InvalidOperationException("INsert Data");
                     _context.Add(newclass);
                     _context.SaveChanges();
 
-                    var courseId = (from tpc in _context.TeacherPerCourses where tpc.Id == teacherPerCouseId select tpc.CourseId).FirstOrDefault();
+                    var courseId = _context.TeacherPerCourses
+                                    .Where(tpc => tpc.Id == teacherPerCouseId)
+                                    .Select(tpc => tpc.CourseId)
+                                    .FirstOrDefault();
 
-                    var className = (from c in _context.Courses where c.Id == courseId select c.Name).FirstOrDefault();
-                   
+                    var className = _context.Courses
+                                    .Where(c => c.Id == courseId)
+                                    .Select(c => c.Name)
+                                    .FirstOrDefault();
+
                     var teacherEmail = _context.Users
-                                    .Where(us => us.TeacherPerCourses.Any(c=>c.Id== teacherPerCouseId)).Select(u => u.Email)
+                                    .Where(us => us.TeacherPerCourses.Any(c => c.Id == teacherPerCouseId)).Select(u => u.Email)
                                     .FirstOrDefault();
                     _emailService.SendEmail(getUserInfo.Email, getUserInfo.Email, "Enrollment to class ", "You have been Suseesfully enrolled in the class :" + className);
-                    _emailService.SendEmail(teacherEmail, teacherEmail, "Enrollment to class ", "Student Name :"+ getUserInfo.Name+" Has been Enrolled in Class :" + className);
+                    _emailService.SendEmail(teacherEmail, teacherEmail, "Enrollment to class ", "Student Name :" + getUserInfo.Name + " Has been Enrolled in Class :" + className);
 
                     conn.Close();
                     return "Inserted succesfully check your email";
-                    
+
                 }
             }
-            
+
             throw new Exception("connection add Class because times up");
         }
 
@@ -119,6 +133,7 @@ namespace UMS.Application.Service
                                   teacherName = u.Name
 
                               }).ToList();
+
 
             conn.Close();
             return attendance;

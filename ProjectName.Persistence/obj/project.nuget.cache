@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WmxzkmE+mzHo++xkTO3rhJpCO5JE7QlnFUH2Gybe/8uqDIEuKjigKqeOTPEViGohYP/LLKAF4L+FlX7rRONySQ==",
+  "dgSpecHash": "LxbnbxEEdI/k+5HJQ1FDmxQC5S3RLJURnaLYEoQ57hypbQ/NyfieVmlg7rcwxoA8CCMCx+yi7qYFDFObbRJMxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nicol\\source\\repos\\DDD\\ProjectName.Persistence\\UMS.Persistence.csproj",
   "expectedPackageFiles": [
@@ -120,6 +120,7 @@
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.elasticsearch\\9.0.0\\serilog.sinks.elasticsearch.9.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.periodicbatching\\3.1.0\\serilog.sinks.periodicbatching.3.1.0.nupkg.sha512",
+    "C:\\Users\\nicol\\.nuget\\packages\\serilog.sinks.rabbitmq\\6.0.0\\serilog.sinks.rabbitmq.6.0.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\nicol\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",

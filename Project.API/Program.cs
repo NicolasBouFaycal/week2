@@ -25,6 +25,8 @@ using Serilog.Sinks.Elasticsearch;
 using Serilog.Exceptions;
 using UMS.Application.Handler;
 using RabbitMQ.Client;
+using UMS.Application.HostService;
+using Serilog.Sinks.RabbitMQ;
 
 ;
 
@@ -147,7 +149,7 @@ builder.Services.AddTransient<IStudentsHelper, StudentsService>();
 builder.Services.AddTransient<ITeachersHelper, TeachersService>();
 builder.Services.AddTransient<IAdminsHelper, AdminsService>();
 builder.Services.AddTransient<IAuthenticationHelper, AuthenticationService>();
-
+builder.Services.AddHostedService<RabbitMqHost>();
 
 ConfigureLogging();
 builder.Host.UseSerilog();
@@ -189,6 +191,15 @@ void ConfigureLogging()
         .Enrich.WithExceptionDetails()
         .WriteTo.Debug()
         .WriteTo.Console()
+        .WriteTo.RabbitMQ(
+                hostname: "amqp://guest:guest@localhost:5672",
+                exchange: "logs-exchange",
+                deliveryMode: RabbitMQDeliveryMode.NonDurable,
+                routeKey: "logs.init",
+                username: "guest",
+                password: "guest",
+                port: 5672
+                )
         .WriteTo.Elasticsearch(ConfigureElasticSink(configuration, environment))
         .Enrich.WithProperty("Environment", environment)
         .ReadFrom.Configuration(configuration)

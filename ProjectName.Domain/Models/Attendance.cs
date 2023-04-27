@@ -12,5 +12,6 @@ namespace UMS.Domain.Models
         public int StudentCourseId { get; set; }
         public bool AttendanceStatus { get; set; }
         public DateTime Date { get; set; }
+
     }
 }

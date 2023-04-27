@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace UMS.Application.Service
 {
-    public class TeachersService:ITeachersHelper
+    public class TeachersService : ITeachersHelper
     {
         public readonly MyDbContext _context;
         public readonly IShemaHelper _shemaService;
@@ -25,7 +25,7 @@ namespace UMS.Application.Service
             _connect = connection;
         }
 
-        public TeacherPerCoursePerSessionTime TeacherPerCoursePerSessionTime( int teacherPerCourseId, int sessionTimeId)
+        public TeacherPerCoursePerSessionTime TeacherPerCoursePerSessionTime(int teacherPerCourseId, int sessionTimeId)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace UMS.Application.Service
                     throw new InvalidOperationException("INsert Data");
                 _context.Add(course);
                 _context.SaveChanges();
-                conn.Close ();
+                conn.Close();
                 return course;
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace UMS.Application.Service
             .ToList();*/
 
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
             var userid = Uid.uid;
             var branch = _shemaService.getBranch(userid);
             var conn = _context.Database.GetDbConnection() as NpgsqlConnection;
@@ -98,13 +98,13 @@ namespace UMS.Application.Service
 
             if (courses2.Count > 0)
             {
-                conn.Close ();
+                conn.Close();
                 return courses2;
             }
             throw new Exception("NUll");
         }
 
-        public List<SessionTime>AllSessionTime()
+        public List<SessionTime> AllSessionTime()
         {
             var userid = Uid.uid;
             var branch = _shemaService.getBranch(userid);
@@ -116,7 +116,7 @@ namespace UMS.Application.Service
                 .Where(st => !st.TeacherPerCoursePerSessionTimes.Any())
                 .ToList();
 
-         
+
             if (Scourses.Count > 0)
             {
                 conn.Close();
@@ -135,7 +135,7 @@ namespace UMS.Application.Service
             var getTeacherId = (from t in _context.Users where t.KeycloakId == userid select t.Id).FirstOrDefault();
 
             var thcourses = _context.TeacherPerCourses
-                .Where(tp =>tp.TeacherId == getTeacherId && !tp.TeacherPerCoursePerSessionTimes.Any())
+                .Where(tp => tp.TeacherId == getTeacherId && !tp.TeacherPerCoursePerSessionTimes.Any())
                 .ToList();
 
             if (thcourses.Count > 0)
@@ -146,7 +146,7 @@ namespace UMS.Application.Service
             throw new Exception("NUll");
         }
 
-        public SessionTime SessionTime(DateTime StartTimeYYYY_MM_DD,DateTime EndTimeYYYY_MM_DD,int Duration)
+        public SessionTime SessionTime(DateTime StartTimeYYYY_MM_DD, DateTime EndTimeYYYY_MM_DD, int Duration)
         {
             try
             {
@@ -189,7 +189,6 @@ namespace UMS.Application.Service
                  exclusive: false,
                  autoDelete: false,
                  arguments: null);
-
              var consumer = new EventingBasicConsumer(channel);
              consumer.Received += (sender, e) =>
              {
@@ -229,7 +228,7 @@ namespace UMS.Application.Service
                 _context.SaveChanges();
 
             }
-          
+
             var getAllStudentsInTeacherClasses = (from c in _context.ClassEnrollments
                                                   join tc in _context.TeacherPerCourses
                                                   on c.ClassId equals tc.Id
